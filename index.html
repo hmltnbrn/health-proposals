@@ -1,0 +1,274 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Commonwealth Fund - Healthcare Plans</title>
+  <style type="text/css">
+
+    @font-face {
+      font-family: InterfaceRegular;
+      src: url('fonts/interface/InterFace_Rg.ttf');
+    }
+
+    @font-face {
+      font-family: InterfaceBold;
+      src: url('fonts/interface/InterFace_Bd.ttf');
+    }
+
+    @font-face {
+      font-family: BerlingskeSerifTextExtrabold;
+      src: url('fonts/berlingske/BerlingskeSerifText-Extrabold.otf');
+    }
+
+    body {
+      margin: 0;
+      font-family: InterfaceRegular;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    h2 {
+      margin: 0;
+    }
+
+    .body-container {
+      width: 100%;
+      margin: 0 auto;
+      max-width: 900px;
+    }
+
+    .top-text {
+      padding: 40px 0;
+      color: #a3a5a9;
+    }
+
+    .one-color {
+      color: #49bdbb;
+      fill: #49bdbb;
+    }
+
+    .two-color {
+      color: #4b92bc;
+      fill: #4b92bc;
+    }
+
+    .three-color {
+      color: #034e7f;
+      fill: #034e7f;
+    }
+
+    .plan-container {
+      display: flex;
+    }
+
+    .plan {
+      width: 33.3%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .plan:first-child {
+      margin-right: 0.1%;
+      align-items: flex-start;
+    }
+
+    .plan:last-child {
+      margin-left: 0.1%;
+      align-items: flex-end;
+    }
+
+    .plan h2 {
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+
+    .plan-main {
+      min-height: 100px;
+      max-height: 100px;
+      width: 100%;
+    }
+
+    .plan-main.one {
+      background-color: #d7ecee;
+    }
+
+    .plan-main.two {
+      background-color: #d7ecee;
+    }
+
+    .plan-main.three {
+      background-color: #d7ecee;
+    }
+
+    .plan-description {
+      padding: 5px 10px 0 10px;
+    }
+
+    .plan-description p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .timeline-container {
+      min-height: 100px;
+    }
+
+    div.tooltip {
+      font-family: InterfaceRegular;
+      position: absolute;
+      padding: 10px;
+      font-size: 13px;
+      background: #eef8f9;
+      border: 0px;
+      border-radius: 0px;
+      pointer-events: none;
+      max-width: 150px;
+    }
+
+    .tooltip-name {
+      color: #656c71;
+      font-size: 18px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="body-container">
+    <div class="top-text">
+      <p>As we head into the 2020 presidential election, here is a continuum of health care proposals, from those that aim to offer universal coverage with little or no cost to consumers and a larger federal role to proposals calling for less-regulated private health plans with lower premiums but greater cost sharing and larger role for states.</p>
+    </div>
+    <div class="plan-container">
+      <div class="plan">
+        <h2 class="one-color">Single Payer</h2>
+        <div class="plan-main one">
+          <div class="plan-description one-color">
+            <p>Comprehensive coverage with little or no cost sharing</p>
+            <p>Government bargaining power is essential to control costs</p>
+          </div>
+        </div>
+      </div>
+      <div class="plan">
+        <h2 class="two-color">Building on the Affordable Care Act</h2>
+        <div class="plan-main two">
+          <div class="plan-description two-color">
+            <p>Competitive, regulated markets</p>
+            <p>State flexibility with a federal floor</p>
+            <p>Mixed public and private insurance</p>
+          </div>
+        </div>
+      </div>
+      <div class="plan">
+        <h2 class="three-color">Individual Responsibility</h2>
+        <div class="plan-main three">
+          <div class="plan-description three-color">
+            <p>Lower premiums through greater cost-sharing</p>
+            <p>Considerable state flexibility</p>
+            <p>Less regulated plan choices</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="timeline-container" class="timeline-container">
+    </div>
+  </div>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://d3js.org/queue.v1.min.js"></script>
+  <script type="text/javascript">
+
+    queue()
+      .defer(d3.json, 'data/plans.json')
+      .await(renderAll);
+    
+    function renderAll(error, plans) {
+
+      var chartDiv = document.getElementById("timeline-container");
+      var w = chartDiv.clientWidth,
+          h = chartDiv.clientHeight,
+          margin = { top: 20, right: 0, bottom: 20, left: 0 },
+          radius = 7;
+
+      var svg = d3.select(".timeline-container").append("svg").attr({
+        width: w,
+        height: h,
+        transform: "translate(" + [0, -1*margin.top] + ")",
+      });
+
+      var div = d3.select("body")
+        .append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+
+      var xScale = d3.scale.linear()
+        .domain([0, 100])
+        .range([margin.left, w - margin.right]);
+
+      var xAxis = d3.svg.axis()
+        .scale(xScale)
+        .orient("top")
+        .ticks(0)
+        .outerTickSize([2.5]);
+
+      var defs = svg.append("defs");
+
+      var gradient = defs.append("linearGradient")
+        .attr("id", "svgGradient")
+        .attr("x1", "0%")
+        .attr("x2", "100%");
+
+      gradient.append("stop")
+        .attr('class', 'start')
+        .attr("offset", "0%")
+        .attr("stop-color", "#4cbfbc")
+        .attr("stop-opacity", 1);
+
+      gradient.append("stop")
+        .attr('class', 'end')
+        .attr("offset", "100%")
+        .attr("stop-color", "#054e7f")
+        .attr("stop-opacity", 1);
+
+      svg.append("g").attr({
+        "class": "axis",
+        "stroke": "url(#svgGradient)",
+        "transform": "translate(" + [0, margin.top] + ")",
+        "fill": "none",
+        "stroke-width": "5px"
+      }).call(xAxis);
+
+      var circleAttrs = {
+        cx: function(d) { return xScale(d.x); },
+        cy: 20,
+        r: radius,
+        stroke: "white",
+        "stroke-width": "0.5px",
+        class: function(d) {
+          if(d.x < 33) return "one-color";
+          else if(d.x >= 34 && d.x <= 66) return "two-color";
+          else return "three-color";
+        }
+      };
+
+      svg.selectAll("circle")
+        .data(plans)
+        .enter()
+        .append("circle")
+        .attr(circleAttrs)
+        .on("mouseover", function(d) {
+          div.transition()
+            .style("opacity", 1);
+          div.html(`<h2 class="tooltip-name">${d.name}</h2>`)
+            .style("left", (d3.event.pageX - 20) + "px")
+            .style("top", (d3.event.pageY + 20) + "px");
+        })
+        .on("mouseout", function(d) {
+          div.transition()
+            .style("opacity", 0);
+        });
+
+    }
+
+  </script>
+</body>
+</html>
