@@ -1,0 +1,62 @@
+[
+  {
+    "x": 0,
+    "name": "Consumer Health Insurance Protection Act",
+    "sponser": "Elizabeth Warren (D-Mass.), 2018",
+    "benefit": "Enhances health insurance marketplace premium subsidies by setting the higher-quality “gold plan” as the marketplace benchmark that is used to calculate subsides instead of the “silver plan.” Fixes the “family glitch” whereby many families only receive individual-level subsidies and expands cost-sharing subsides to help cover out-of-pocket costs. Sets a cap on prescription cost-sharing.",
+    "coverage": "Premiums, as well as any deductibles and copays or coinsurance that are part of their plan.",
+    "cost": "Would guarantee plan choice and promote competition by requiring insurers that offer Medicare Advantage or Medicaid managed care plans in a region, to also offer marketplace plans.  Allocates $480 million to the Secretary of the U.S. Department of Health and Human Services for marketing and outreach for open enrollment in first year; increases by 4 percent annually in subsequent years.",
+    "transition": "",
+    "link": "https://www.warren.senate.gov/imo/media/doc/2018-03-21%20Consumer%20Health%20Insurance%20Protection%20Act%20bill%20text.pdf"
+  },
+  {
+    "x": 1,
+    "name": "Medicare X Choice Act",
+    "sponser": "Sens. Michael Bennet (D-Co.) and Tim Kaine (D-Va.), 2017",
+    "benefit": "Creates a health insurance marketplace public plan option, the Medicare Exchange plan, that meets marketplace quality standards.",
+    "coverage": "Premiums, as well as any deductibles and copays or coinsurance that are part of their plan.",
+    "cost": "The U.S. Department of Health and Human Services Secretary sets premiums and negotiates prescription drug prices; the Veteran Affairs price is the fallback if negotiations fail. Health providers participating in Medicare or Medicaid must participate in the public plan. Providers are reimbursed at Medicare rates; higher in rural areas.",
+    "transition": "",
+    "link": "https://www.congress.gov/bill/115th-congress/senate-bill/1970"
+  },
+  {
+    "x": 2,
+    "name": "Choose Medicare Act",
+    "sponser": "Senators Jeff Merkley (D-Ore.) and Chris Murphy (D-Conn.), 2018",
+    "benefit": "Creates a health insurance marketplace public health plan, Medicare Part E, that meets ACA marketplace “gold plan” quality standards. Offers more generous subsidies than the ACA. Employers can purchase this plan for their workers instead of a private plan.",
+    "coverage": "Premiums, as well as any deductibles and copays or coinsurance that are part of their plan.",
+    "cost": "Provides funding for states to establish reinsurance programs. U.S. Department of Health and Human Services Secretary negotiates prescription drug prices and health provider rates between Medicare and local private rates.",
+    "transition": "",
+    "link": "https://www.congress.gov/bill/115th-congress/senate-bill/2708"
+  },
+  {
+    "x": 3,
+    "name": "State Public Option Act",
+    "sponser": "Sen. Brian Schatz (D-Hawaii) and Rep. Ben Ray Luján (D-N.M.), 2017",
+    "benefit": "States could create a Medicaid buy-in program for people of all income levels available in the health insurance marketplaces. States may vary premiums by the same factors, e.g., age, as marketplace plans. Marketplace premiums and cost-sharing subsides available.",
+    "coverage": "Premiums, as well as any deductibles and copays or coinsurance that are part of their plan.",
+    "cost": "Deductibles and other cost-sharing amounts would also be determined by the electing state to be actuarially fair. States would receive federal matching payments for any costs for the Medicaid buy-in program that are not covered by premiums and cost-sharing payments.",
+    "transition": "",
+    "link": "https://www.congress.gov/bill/115th-congress/senate-bill/2001"
+  },
+  {
+    "x": 4,
+    "name": "Medicare Buy-In and Health Care Stabilization Act",
+    "sponser": "Reps. Brian Higgins (D-N.Y.), John Larson (D-Conn.), Joe Courtney (D-Conn.), 2017",
+    "benefit": "Americans ages 50 to 64 to buy-in to Medicare for an annual premium. Available in the ACA marketplaces and to those with employer coverage. Those eligible for ACA subsides could apply them to the plan.",
+    "coverage": "Premiums, as well as any deductibles and copays or coinsurance that are part of their plan.",
+    "cost": "The U.S. Department of Health and Human Services would set the premium. Reinstates the ACA’s cost-sharing reduction payments to insurers and reinsurance programs. Extends risk corridors to offset insurer losses through 2020.",
+    "transition": "",
+    "link": "https://www.congress.gov/bill/115th-congress/house-bill/3748"
+  },
+  {
+    "x": 5,
+    "name": "Medicare for All",
+    "sponser": "Sen. Sanders (I-Vt.)",
+    "benefit": "Creates a national health insurance program, the Universal Medicare Trust Fund, that absorbs Medicare, Medicaid, the Federal Employee Health Benefits Program, and TRICARE; employer benefit plans are not allowed. All residents are eligible. Offers comprehensive benefits, including vision and dental coverage, with no cost sharing.",
+    "coverage": "Taxes.",
+    "cost": "U.S. Department of Health and Human Services Secretary negotiates prescription drug prices; health provider rates set at Medicare rates.",
+    "transition": "Creates a Medicare transition plan offered through the ACA marketplaces for which all residents are eligible. Health providers are paid at Medicare rates. Medicare and Medicaid providers must participate. U.S. Department of Health and Human Services Secretary sets premiums, negotiates prescription drug prices. Enhanced subsidies offered.",
+    "link": "https://www.congress.gov/bill/115th-congress/senate-bill/1804"
+  }
+]

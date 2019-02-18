@@ -19,6 +19,12 @@
       src: url('fonts/berlingske/BerlingskeSerifText-Extrabold.otf');
     }
 
+    * {
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: InterfaceRegular;
@@ -39,8 +45,13 @@
     }
 
     .top-text {
-      padding: 40px 0;
+      padding: 20px 0;
       color: #a3a5a9;
+    }
+
+    h1 {
+      color: #f47a21;
+      margin: 0 0 10px 0;
     }
 
     .one-color {
@@ -60,6 +71,81 @@
 
     .plan-container {
       display: flex;
+      flex-direction: column;
+    }
+
+    .big-block-container {
+      display: flex;
+      height: 75px;
+      width: 100%;
+      background: linear-gradient(to right, #2d8896, #033865);
+    }
+
+    .big-block {
+      border: 1px solid white;
+      padding: 15px 10px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .big-block:first-child {
+      border-left: none;
+    }
+
+    .big-block:last-child {
+      border-right: none;
+    }
+
+    .big-block h2 {
+      margin: 0;
+      font-size: 15px;
+      color: white;
+    }
+
+    .big-block.one {
+      width: calc(100%/6*3);
+    }
+
+    .big-block.two {
+      width: calc(100%/6*2);
+    }
+
+    .big-block.three {
+      width: calc(100%/6);
+    }
+
+    .small-block-container {
+      display: flex;
+      height: 85px;
+      width: 100%;
+      background: linear-gradient(to right, #6ac3c6, #377098);
+    }
+
+    .small-block {
+      width: calc(100%/6);
+      border: 1px solid white;
+      padding: 10px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .small-block:first-child {
+      border-left: none;
+    }
+
+    .small-block:last-child {
+      border-right: none;
+    }
+
+    .small-block h3 {
+      margin: 0;
+      font-size: 13px;
+      color: white;
+      font-weight: 500;
+    }
+
+    .outline {
+      outline: 1px solid white;
     }
 
     .plan {
@@ -132,45 +218,57 @@
       font-size: 18px;
     }
 
+    .select-proposal-container {
+      color: #a3a5a9;
+      font-size: 25px;
+      text-align: center;
+    }
+
   </style>
 </head>
 <body>
   <div class="body-container">
     <div class="top-text">
+      <h1>Where Do Federal Health Proposals Fall in the Coverage Continuum</h1>
       <p>As we head into the 2020 presidential election, here is a continuum of health care proposals, from those that aim to offer universal coverage with little or no cost to consumers and a larger federal role to proposals calling for less-regulated private health plans with lower premiums but greater cost sharing and larger role for states.</p>
     </div>
     <div class="plan-container">
-      <div class="plan">
-        <h2 class="one-color">Single Payer</h2>
-        <div class="plan-main one">
-          <div class="plan-description one-color">
-            <p>Comprehensive coverage with little or no cost sharing</p>
-            <p>Government bargaining power is essential to control costs</p>
-          </div>
+      <div class="big-block-container">
+        <div class="big-block one">
+          <h2>Building on Current Law</h2>
+        </div>
+        <div class="big-block two">
+          <h2>Public Program Buy-Ins</h2>
+        </div>
+        <div class="big-block three">
+          <h2>Single Payer for All Americans</h2>
         </div>
       </div>
-      <div class="plan">
-        <h2 class="two-color">Building on the Affordable Care Act</h2>
-        <div class="plan-main two">
-          <div class="plan-description two-color">
-            <p>Competitive, regulated markets</p>
-            <p>State flexibility with a federal floor</p>
-            <p>Mixed public and private insurance</p>
-          </div>
+      <div class="small-block-container">
+        <div class="small-block one">
+          <h3>Enhanced subsidied</h3>
         </div>
-      </div>
-      <div class="plan">
-        <h2 class="three-color">Individual Responsibility</h2>
-        <div class="plan-main three">
-          <div class="plan-description three-color">
-            <p>Lower premiums through greater cost-sharing</p>
-            <p>Considerable state flexibility</p>
-            <p>Less regulated plan choices</p>
-          </div>
+        <div class="small-block two">
+          <h3>Marketplace Medicare-Like Plan</h3>
+        </div>
+        <div class="small-block three">
+          <h3>Medicare-Like Public Plan Available to People with Employer Coverage</h3>
+        </div>
+        <div class="small-block four">
+          <h3>Medicaid Buy-In</h3>
+        </div>
+        <div class="small-block five">
+          <h3>Medicare Buy-In for Americans Over 50</h3>
+        </div>
+        <div class="small-block six">
+          <h3>Medicare for All</h3>
         </div>
       </div>
     </div>
     <div id="timeline-container" class="timeline-container">
+    </div>
+    <div class="select-proposal-container">
+      <p>Select a proposal on the continuum to learn more and compare.</p>
     </div>
   </div>
   <script src="https://d3js.org/d3.v3.min.js"></script>
@@ -179,9 +277,10 @@
 
     queue()
       .defer(d3.json, 'data/plans.json')
+      .defer(d3.json, 'data/proposals.json')
       .await(renderAll);
     
-    function renderAll(error, plans) {
+    function renderAll(error, plans, proposals) {
 
       var chartDiv = document.getElementById("timeline-container");
       var w = chartDiv.clientWidth,
@@ -208,7 +307,12 @@
         .scale(xScale)
         .orient("top")
         .ticks(0)
-        .outerTickSize([2.5]);
+        .outerTickSize([3.5]);
+
+      var colorLine = d3.scale.linear()
+        .domain([0, 100])
+        .range(['#4abdbc', '#054d7f'])
+        .interpolate(d3.interpolateHcl);
 
       var defs = svg.append("defs");
 
@@ -220,38 +324,46 @@
       gradient.append("stop")
         .attr('class', 'start')
         .attr("offset", "0%")
-        .attr("stop-color", "#4cbfbc")
+        .attr("stop-color", "#4abdbc")
         .attr("stop-opacity", 1);
 
       gradient.append("stop")
         .attr('class', 'end')
         .attr("offset", "100%")
-        .attr("stop-color", "#054e7f")
+        .attr("stop-color", "#054d7f")
         .attr("stop-opacity", 1);
+
+      svg.append("g").attr({
+        "class": "axis",
+        "stroke": "white",
+        "transform": "translate(" + [0, margin.top] + ")",
+        "fill": "none",
+        "stroke-width": "9px"
+      }).call(xAxis);
 
       svg.append("g").attr({
         "class": "axis",
         "stroke": "url(#svgGradient)",
         "transform": "translate(" + [0, margin.top] + ")",
         "fill": "none",
-        "stroke-width": "5px"
+        "stroke-width": "7px"
       }).call(xAxis);
 
+      var proposalsLength = proposals.length;
+
       var circleAttrs = {
-        cx: function(d) { return xScale(d.x); },
+        cx: function(d) { return xScale((d.x * 100 / proposalsLength) + 2); },
         cy: 20,
         r: radius,
         stroke: "white",
-        "stroke-width": "0.5px",
-        class: function(d) {
-          if(d.x < 33) return "one-color";
-          else if(d.x >= 34 && d.x <= 66) return "two-color";
-          else return "three-color";
+        "stroke-width": "1px",
+        fill: function(d) {
+          return colorLine((d.x * 100 / proposalsLength) + 2);
         }
       };
 
       svg.selectAll("circle")
-        .data(plans)
+        .data(proposals)
         .enter()
         .append("circle")
         .attr(circleAttrs)
