@@ -198,33 +198,105 @@
     }
 
     .timeline-container {
-      min-height: 100px;
+      min-height: 150px;
+      position: relative;
     }
 
     div.tooltip {
       font-family: InterfaceRegular;
       position: absolute;
-      padding: 10px;
-      font-size: 13px;
+      padding: 5px;
+      font-size: 12px;
       background: #eef8f9;
       border: 0px;
       border-radius: 0px;
-      pointer-events: none;
-      max-width: 150px;
+      width: calc(100%/6);
+      min-height: 110px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .tooltip-name {
       color: #656c71;
-      font-size: 18px;
+      font-size: 15px;
     }
 
     .select-proposal-container {
       color: #a3a5a9;
       font-size: 25px;
       text-align: center;
+      display: flex;
+      width: 100%;
+    }
+
+    p.select-proposal-text {
+      width: 100%;
+    }
+
+    .compare-check {
+      margin: 4px;
+      background-color: #edf8f8;
+      border-radius: 4px;
+      overflow: auto;
+      float: left;
+    }
+
+    .compare-bottom {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .compare-check label {
+      float: left;
+    }
+
+    .compare-check label span.outer-span {
+      text-align: center;
+      padding: 3px;
+      display: block;
+      border-radius: 4px;
+    }
+
+    .compare-check label span.outer-span > i {
+      font-size: 16px;
+      margin-left: 5px;
+      margin-bottom: 1.6px;
+    }
+
+    .compare-check label input {
+      position: absolute;
+      z-index: -1;
+    }
+
+    .compare-check input + span.outer-span {
+      color: #5fc4c4;
+      border: 1px solid #5fc4c4;
+      font-size: 10px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+
+    .compare-check input:checked + span.outer-span {
+      background-color: #fef1e9;
+      color: #f4822f;
+      border-color: #f4822f;
+    }
+
+    div label input {
+      margin-right: 100px;
+    }
+
+    div.full-tooltip {
+      font-family: InterfaceRegular;
+      padding: 10px;
+      font-size: 13px;
+      width: calc(100%/4);
     }
 
   </style>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <div class="body-container">
@@ -268,12 +340,27 @@
     <div id="timeline-container" class="timeline-container">
     </div>
     <div class="select-proposal-container">
-      <p>Select a proposal on the continuum to learn more and compare.</p>
+      <p class="select-proposal-text">Select a proposal on the continuum to learn more and compare.</p>
     </div>
   </div>
   <script src="https://d3js.org/d3.v3.min.js"></script>
   <script src="https://d3js.org/queue.v1.min.js"></script>
   <script type="text/javascript">
+
+    d3.selection.prototype.show = function() {  
+      this.style('display', 'block');
+      return this;
+    }
+
+    d3.selection.prototype.hide = function() {  
+      this.style('display', 'none');
+      return this;
+    }
+
+    d3.selection.prototype.toggle = function() {  
+      var isHidden = this.style('display') == 'none';
+      return this.style('display', isHidden ? 'inherit' : 'none');
+    }
 
     queue()
       .defer(d3.json, 'data/plans.json')
@@ -284,7 +371,7 @@
 
       var chartDiv = document.getElementById("timeline-container");
       var w = chartDiv.clientWidth,
-          h = chartDiv.clientHeight,
+          h = 40,
           margin = { top: 20, right: 0, bottom: 20, left: 0 },
           radius = 7;
 
@@ -293,11 +380,6 @@
         height: h,
         transform: "translate(" + [0, -1*margin.top] + ")",
       });
-
-      var div = d3.select("body")
-        .append("div")
-        .attr("class", "tooltip")
-        .style("opacity", 0);
 
       var xScale = d3.scale.linear()
         .domain([0, 100])
@@ -362,21 +444,77 @@
         }
       };
 
+      var clicked = [];
+      var checking = [];
+
       svg.selectAll("circle")
         .data(proposals)
         .enter()
         .append("circle")
         .attr(circleAttrs)
         .on("mouseover", function(d) {
-          div.transition()
-            .style("opacity", 1);
-          div.html(`<h2 class="tooltip-name">${d.name}</h2>`)
-            .style("left", (d3.event.pageX - 20) + "px")
-            .style("top", (d3.event.pageY + 20) + "px");
+          if(clicked.indexOf(d.x) === -1) {
+            var div = d3.select("#timeline-container")
+              .append("div")
+              .attr("class", `tooltip tooltip-${d.x}`)
+              .style("opacity", 0);
+            div.transition()
+              .style("opacity", 1);
+            div.html(`
+              <h2 class="tooltip-name">${d.name}</h2>
+              <div class="compare-bottom">
+                <div class="compare-check">
+                  <label>
+                    <input type="checkbox" id="compare-${d.x}"><span class="outer-span"><span>COMPARE</span> <i class="material-icons">check_circle</i></span>
+                  </label>
+                </div>
+              </div>
+            `)
+              .style("left", (d3.event.target.cx.baseVal.value - 20) + "px")
+              .style("top", (d3.event.target.cy.baseVal.value) + "px");
+          }
+          d3.select(`#compare-${d.x}`).on("change", function() {
+            let checked = d3.select(this).property("checked");
+            if (checked) {
+              d3.select(".select-proposal-text").hide();
+              checking.push(d.x);
+              var divs = d3.select(".select-proposal-container")
+                .append("div")
+                .attr("class", `full-tooltip full-tooltip-${d.x}`)
+                .style("opacity", 0);
+              divs.transition()
+                .style("opacity", 1);
+              divs.html(`
+                <h2 class="tooltip-name">${d.name}</h2>
+              `);
+            }
+            else {
+              checking.pop();
+              var divs = d3.select(`.full-tooltip-${d.x}`).transition()
+                .style("opacity", 0)
+                .remove();
+            }
+            if(checking.length === 0) d3.select(".select-proposal-text").show();
+          });
         })
         .on("mouseout", function(d) {
-          div.transition()
-            .style("opacity", 0);
+          if(clicked.indexOf(d.x) === -1) {
+            d3.select(`.tooltip-${d.x}`).transition()
+              .style("opacity", 0)
+              .remove();
+          }
+        })
+        .on("click", function(d) {
+          var index = clicked.indexOf(d.x);
+          if(index === -1) {
+            clicked.push(d.x);
+          }
+          else {
+            d3.select(`.tooltip-${d.x}`).transition()
+              .style("opacity", 0)
+              .remove();
+            clicked.splice(index);
+          }
         });
 
     }
