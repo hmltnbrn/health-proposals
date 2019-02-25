@@ -44,6 +44,31 @@
       max-width: 900px;
     }
 
+    .header-with-select {
+      display: flex;
+      align-items: center;
+      color: #f47a21;
+      font-size: 30px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .header-with-select select {
+      font-family: InterfaceRegular;
+      background: #fef1e9;
+      padding: 5px;
+      font-size: 30px;
+      font-weight: bold;
+      line-height: 1;
+      border: 0;
+      border-radius: 0;
+      outline: none;
+      height: 50px;
+      color: #f47a21;
+      margin: 0 7px;
+      width: 350px;
+    }
+
     .top-text {
       padding: 20px 0;
       color: #a3a5a9;
@@ -208,13 +233,21 @@
       padding: 5px;
       font-size: 12px;
       background: #eef8f9;
-      border: 0px;
+      border: 1px solid white;
       border-radius: 0px;
       width: calc(100%/6);
       min-height: 110px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+    }
+
+    .tooltip:first-child {
+      border-left: 0;
+    }
+
+    .tooltip:last-child {
+      border-right: 0;
     }
 
     .tooltip-name {
@@ -225,13 +258,21 @@
     .select-proposal-container {
       color: #a3a5a9;
       font-size: 25px;
-      text-align: center;
-      display: flex;
       width: 100%;
+      position: relative;
+    }
+
+    .compare-proposal-container {
+      display: none;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
     }
 
     p.select-proposal-text {
       width: 100%;
+      text-align: center;
     }
 
     .compare-check {
@@ -290,9 +331,26 @@
 
     div.full-tooltip {
       font-family: InterfaceRegular;
-      padding: 10px;
+      padding: 0 20px 0 0;
+      margin: 0 20px 50px 0;
       font-size: 13px;
-      width: calc(100%/4);
+      width: calc(100%/3);
+      border-right: 1.5px dotted #6ac3c6;
+    }
+
+    .full-tooltip h2 {
+      color: #000000;
+      font-size: 17px;
+    }
+
+    .full-tooltip h3 {
+      color: #656c71;
+      font-size: 12px;
+      margin: 10px 0 5px 0;
+    }
+
+    .full-tooltip p {
+      color: #656c71;
     }
 
   </style>
@@ -301,7 +359,9 @@
 <body>
   <div class="body-container">
     <div class="top-text">
-      <h1>Where Do Federal Health Proposals Fall in the Coverage Continuum</h1>
+      <div class="header-with-select">Where Do <select id="plan-selector">
+          <option value="federal">Federal Health Proposals</option>
+        </select> Fall in the Coverage Continuum</div>
       <p>As we head into the 2020 presidential election, here is a continuum of health care proposals, from those that aim to offer universal coverage with little or no cost to consumers and a larger federal role to proposals calling for less-regulated private health plans with lower premiums but greater cost sharing and larger role for states.</p>
     </div>
     <div class="plan-container">
@@ -318,7 +378,7 @@
       </div>
       <div class="small-block-container">
         <div class="small-block one">
-          <h3>Enhanced subsidied</h3>
+          <h3>Enhanced subsidies</h3>
         </div>
         <div class="small-block two">
           <h3>Marketplace Medicare-Like Plan</h3>
@@ -340,6 +400,7 @@
     <div id="timeline-container" class="timeline-container">
     </div>
     <div class="select-proposal-container">
+      <div class="compare-proposal-container"></div>
       <p class="select-proposal-text">Select a proposal on the continuum to learn more and compare.</p>
     </div>
   </div>
@@ -347,19 +408,34 @@
   <script src="https://d3js.org/queue.v1.min.js"></script>
   <script type="text/javascript">
 
-    d3.selection.prototype.show = function() {  
+    d3.selection.prototype.show = function() {
       this.style('display', 'block');
       return this;
     }
 
-    d3.selection.prototype.hide = function() {  
+    d3.selection.prototype.showFlex = function() {
+      this.style('display', 'flex');
+      return this;
+    }
+
+    d3.selection.prototype.hide = function() {
       this.style('display', 'none');
       return this;
     }
 
-    d3.selection.prototype.toggle = function() {  
+    d3.selection.prototype.toggle = function() {
       var isHidden = this.style('display') == 'none';
       return this.style('display', isHidden ? 'inherit' : 'none');
+    }
+
+    d3.selection.prototype.check = function() {
+      this.property("checked", true);
+      return this;
+    }
+
+    d3.selection.prototype.uncheck = function() {
+      this.property("checked", false);
+      return this;
     }
 
     queue()
@@ -446,14 +522,47 @@
 
       var clicked = [];
       var checking = [];
+      var moused = false;
 
       svg.selectAll("circle")
         .data(proposals)
         .enter()
         .append("circle")
         .attr(circleAttrs)
-        .on("mouseover", function(d) {
+        .on("mouseover", mouseOver)
+        .on("mouseout", function(d) {
           if(clicked.indexOf(d.x) === -1) {
+            moused = false;
+            d3.select(`.tooltip-${d.x}`).transition()
+              .style("opacity", 0)
+              .remove();
+          }
+        })
+        .on("click", function(d) {
+          var index = clicked.indexOf(d.x);
+          if(index === -1) {
+            clicked.push(d.x);
+            if(!moused) {
+              mouseOver(d);
+              moused = true;
+            }
+          }
+          else {
+            moused = false;
+            d3.select(`.tooltip-${d.x}`).transition()
+              .style("opacity", 0)
+              .remove();
+            clicked.splice(index);
+            toggleCompareDivs(d, "uncheck");
+            setTimeout(() => {
+              d3.select(`.compare-${d.x}`).uncheck();
+            }, 0);
+          }
+        });
+
+        function mouseOver(d) {
+          if(clicked.indexOf(d.x) === -1) {
+            moused = true;
             var div = d3.select("#timeline-container")
               .append("div")
               .attr("class", `tooltip tooltip-${d.x}`)
@@ -465,20 +574,52 @@
               <div class="compare-bottom">
                 <div class="compare-check">
                   <label>
-                    <input type="checkbox" id="compare-${d.x}"><span class="outer-span"><span>COMPARE</span> <i class="material-icons">check_circle</i></span>
+                    <input type="checkbox" class="compare-${d.x}"><span class="outer-span"><span>COMPARE</span> <i class="material-icons">check_circle</i></span>
                   </label>
                 </div>
               </div>
             `)
               .style("left", (d3.event.target.cx.baseVal.value - 20) + "px")
               .style("top", (d3.event.target.cy.baseVal.value) + "px");
+            setTimeout(() => {
+              toggleCompareDivs(d);
+            }, 0);
           }
-          d3.select(`#compare-${d.x}`).on("change", function() {
+          else if(clicked.indexOf(d.x) !== -1 && !moused) {
+            moused = true;
+            var div = d3.select("#timeline-container")
+              .append("div")
+              .attr("class", `tooltip tooltip-${d.x}`)
+              .style("opacity", 0);
+            div.transition()
+              .style("opacity", 1);
+            div.html(`
+              <h2 class="tooltip-name">${d.name}</h2>
+              <div class="compare-bottom">
+                <div class="compare-check">
+                  <label>
+                    <input type="checkbox" class="compare-${d.x}"><span class="outer-span"><span>COMPARE</span> <i class="material-icons">check_circle</i></span>
+                  </label>
+                </div>
+              </div>
+            `)
+              .style("left", (d3.event.target.cx.baseVal.value - 20) + "px")
+              .style("top", (d3.event.target.cy.baseVal.value) + "px");
+            setTimeout(() => {
+              toggleCompareDivs(d);
+            }, 0);
+          }
+        }
+
+        function toggleCompareDivs(d) {
+          d3.select(`.compare-${d.x}`).on("change", function() {
             let checked = d3.select(this).property("checked");
-            if (checked) {
+            let index = checking.indexOf(d.x);
+            if (checked && index === -1) {
               d3.select(".select-proposal-text").hide();
+              d3.select(".compare-proposal-container").showFlex();
               checking.push(d.x);
-              var divs = d3.select(".select-proposal-container")
+              var divs = d3.select(".compare-proposal-container")
                 .append("div")
                 .attr("class", `full-tooltip full-tooltip-${d.x}`)
                 .style("opacity", 0);
@@ -486,36 +627,29 @@
                 .style("opacity", 1);
               divs.html(`
                 <h2 class="tooltip-name">${d.name}</h2>
+                <h3>Sponser</h3>
+                <p>${d.sponser}</p>
+                <h3>Coverage Enhancement</h3>
+                <p>${d.benefit}</p>
+                <h3>Where Is It Offered</h3>
+                <p>${d.coverage}</p>
+                <h3>Financials</h3>
+                <p>${d.cost}</p>
+                ${d.transition ? "<h3>Transition</h3><p>" + d.transition + "</p>" : "<span></span>"}
               `);
             }
             else {
-              checking.pop();
+              checking.splice(index);
               var divs = d3.select(`.full-tooltip-${d.x}`).transition()
                 .style("opacity", 0)
                 .remove();
             }
-            if(checking.length === 0) d3.select(".select-proposal-text").show();
+            if(checking.length === 0) {
+              d3.select(".select-proposal-text").show();
+              d3.select(".compare-proposal-container").hide();
+            }
           });
-        })
-        .on("mouseout", function(d) {
-          if(clicked.indexOf(d.x) === -1) {
-            d3.select(`.tooltip-${d.x}`).transition()
-              .style("opacity", 0)
-              .remove();
-          }
-        })
-        .on("click", function(d) {
-          var index = clicked.indexOf(d.x);
-          if(index === -1) {
-            clicked.push(d.x);
-          }
-          else {
-            d3.select(`.tooltip-${d.x}`).transition()
-              .style("opacity", 0)
-              .remove();
-            clicked.splice(index);
-          }
-        });
+        }
 
     }
 
