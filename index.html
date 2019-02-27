@@ -41,24 +41,23 @@
     .body-container {
       width: 100%;
       margin: 0 auto;
-      max-width: 900px;
+      max-width: 1000px;
     }
 
     .header-with-select {
+      font-family: BerlingskeSerifTextExtrabold;
       display: flex;
       align-items: center;
       color: #f47a21;
-      font-size: 30px;
-      font-weight: bold;
+      font-size: 28px;
       margin: 10px 0;
     }
 
     .header-with-select select {
-      font-family: InterfaceRegular;
+      font-family: BerlingskeSerifTextExtrabold;
       background: #fef1e9;
       padding: 5px;
-      font-size: 30px;
-      font-weight: bold;
+      font-size: 28px;
       line-height: 1;
       border: 0;
       border-radius: 0;
@@ -66,17 +65,17 @@
       height: 50px;
       color: #f47a21;
       margin: 0 7px;
-      width: 350px;
+      width: 375px;
     }
 
     .top-text {
-      padding: 20px 0;
+      margin: 20px 0 40px 0;
       color: #a3a5a9;
     }
 
-    h1 {
-      color: #f47a21;
-      margin: 0 0 10px 0;
+    .top-text p {
+      margin: 30px 0 0 0;
+      color: #5a5e68;
     }
 
     .one-color {
@@ -122,6 +121,7 @@
     }
 
     .big-block h2 {
+      font-family: InterfaceBold;
       margin: 0;
       font-size: 15px;
       color: white;
@@ -163,10 +163,11 @@
     }
 
     .small-block h3 {
+      font-family: InterfaceBold;
       margin: 0;
       font-size: 13px;
       color: white;
-      font-weight: 500;
+      /* font-weight: 500; */
     }
 
     .outline {
@@ -251,6 +252,7 @@
     }
 
     .tooltip-name {
+      font-family: InterfaceBold;
       color: #656c71;
       font-size: 15px;
     }
@@ -311,10 +313,11 @@
     }
 
     .compare-check input + span.outer-span {
+      font-family: InterfaceBold;
       color: #5fc4c4;
       border: 1px solid #5fc4c4;
       font-size: 10px;
-      font-weight: bold;
+      /* font-weight: bold; */
       display: flex;
       align-items: center;
     }
@@ -338,19 +341,38 @@
       border-right: 1.5px dotted #6ac3c6;
     }
 
+    .full-tooltip .option-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #f4822f;
+      margin: 0 0 10px 0;
+    }
+
+    .full-tooltip .option-head h4 {
+      font-family: InterfaceBold;
+      margin: 0;
+    }
+
+    .full-tooltip .option-head .close-full-tooltip {
+      cursor: pointer;
+    }
+
     .full-tooltip h2 {
+      font-family: InterfaceBold;
       color: #000000;
       font-size: 17px;
     }
 
     .full-tooltip h3 {
-      color: #656c71;
+      font-family: InterfaceBold;
+      color: #5a5e68;
       font-size: 12px;
       margin: 10px 0 5px 0;
     }
 
     .full-tooltip p {
-      color: #656c71;
+      color: #5a5e68;
     }
 
   </style>
@@ -540,6 +562,7 @@
         })
         .on("click", function(d) {
           var index = clicked.indexOf(d.x);
+          var checkIndex = checking.indexOf(d.x);
           if(index === -1) {
             clicked.push(d.x);
             if(!moused) {
@@ -552,13 +575,30 @@
             d3.select(`.tooltip-${d.x}`).transition()
               .style("opacity", 0)
               .remove();
-            clicked.splice(index);
-            toggleCompareDivs(d, "uncheck");
+            clicked.splice(index, 1);
+            checking.splice(checkIndex, 1);
+            d3.select(`.full-tooltip-${d.x}`).transition()
+              .style("opacity", 0)
+              .remove();
             setTimeout(() => {
-              d3.select(`.compare-${d.x}`).uncheck();
+              redoOptions();
             }, 0);
           }
         });
+
+        function redoOptions() {
+          var count = 1;
+          d3.selectAll(".full-tooltip").each(function(d, i) {
+            console.log(d3.select(this))
+            console.log(d3.select(this)[0][0].clientHeight)
+            d3.select(this).select(".option-head-number").text(`Option ${i}`);
+            count++;
+          });
+          if(checking.length === 0) {
+            d3.select(".select-proposal-text").show();
+            d3.select(".compare-proposal-container").hide();
+          }
+        }
 
         function mouseOver(d) {
           if(clicked.indexOf(d.x) === -1) {
@@ -567,8 +607,6 @@
               .append("div")
               .attr("class", `tooltip tooltip-${d.x}`)
               .style("opacity", 0);
-            div.transition()
-              .style("opacity", 1);
             div.html(`
               <h2 class="tooltip-name">${d.name}</h2>
               <div class="compare-bottom">
@@ -581,6 +619,8 @@
             `)
               .style("left", (d3.event.target.cx.baseVal.value - 20) + "px")
               .style("top", (d3.event.target.cy.baseVal.value) + "px");
+            div.transition()
+              .style("opacity", 1);
             setTimeout(() => {
               toggleCompareDivs(d);
             }, 0);
@@ -591,8 +631,6 @@
               .append("div")
               .attr("class", `tooltip tooltip-${d.x}`)
               .style("opacity", 0);
-            div.transition()
-              .style("opacity", 1);
             div.html(`
               <h2 class="tooltip-name">${d.name}</h2>
               <div class="compare-bottom">
@@ -605,6 +643,8 @@
             `)
               .style("left", (d3.event.target.cx.baseVal.value - 20) + "px")
               .style("top", (d3.event.target.cy.baseVal.value) + "px");
+            div.transition()
+              .style("opacity", 1);
             setTimeout(() => {
               toggleCompareDivs(d);
             }, 0);
@@ -623,10 +663,14 @@
                 .append("div")
                 .attr("class", `full-tooltip full-tooltip-${d.x}`)
                 .style("opacity", 0);
-              divs.transition()
-                .style("opacity", 1);
               divs.html(`
-                <h2 class="tooltip-name">${d.name}</h2>
+                <div class="option-head">
+                  <h4 class="option-head-number">Option ${checking.length}</h4>
+                  <div class="close-full-tooltip">
+                    <i class="material-icons">close</i>
+                  </div>
+                </div>
+                <h2>${d.name}</h2>
                 <h3>Sponser</h3>
                 <p>${d.sponser}</p>
                 <h3>Coverage Enhancement</h3>
@@ -637,17 +681,23 @@
                 <p>${d.cost}</p>
                 ${d.transition ? "<h3>Transition</h3><p>" + d.transition + "</p>" : "<span></span>"}
               `);
+              divs.transition()
+                .style("opacity", 1);
             }
-            else {
-              checking.splice(index);
+            else if(!checked) {
+              checking.splice(index, 1);
               var divs = d3.select(`.full-tooltip-${d.x}`).transition()
                 .style("opacity", 0)
                 .remove();
             }
-            if(checking.length === 0) {
-              d3.select(".select-proposal-text").show();
-              d3.select(".compare-proposal-container").hide();
-            }
+            // redoOptions();
+            // if(checking.length === 0) {
+            //   d3.select(".select-proposal-text").show();
+            //   d3.select(".compare-proposal-container").hide();
+            // }
+            setTimeout(() => {
+              redoOptions();
+            }, 0);
           });
         }
 
