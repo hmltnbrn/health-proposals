@@ -422,7 +422,7 @@
   <div class="body-container">
     <div class="top-text">
       <div class="top-header">
-        <h1>Where Do Federal Health Proposals Fall in the Coverage Continuum</h1>
+        <h1>Where Do <span>Federal Health Proposals</span> Fall in the Coverage Continuum</h1>
         <div class="system-radios">
           <div class="radio-container">
             <input type="radio" id="federal-radio" name="plans" value="federal" checked/>
@@ -556,11 +556,13 @@
         d3.select(".federal-container").show();
         d3.select(".international-container").hide();
         d3.select(".select-proposal-text span").text("proposal");
+        d3.select("h1 span").text("Federal Health Proposals");
       }
       else if(system === "international") {
         d3.select(".international-container").show();
         d3.select(".federal-container").hide();
         d3.select(".select-proposal-text span").text("country");
+        d3.select("h1 span").text("International Health Systems");
       }
     });
 
