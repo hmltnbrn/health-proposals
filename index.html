@@ -63,6 +63,10 @@
       text-align: center;
     }
 
+    h1.international-header {
+      display: none;
+    }
+
     .system-radios {
       display: flex;
       justify-content: center;
@@ -139,7 +143,7 @@
 
     .big-block-container {
       display: flex;
-      height: 110px;
+      height: 135px;
       width: 100%;
       background: linear-gradient(to right, #2d8896, #033865);
     }
@@ -186,7 +190,7 @@
 
     .small-block-container {
       display: flex;
-      height: 85px;
+      height: 100px;
       width: 100%;
       background: linear-gradient(to right, #6ac3c6, #377098);
     }
@@ -268,8 +272,9 @@
     }
 
     .timeline-container {
-      min-height: 150px;
+      min-height: 160px;
       position: relative;
+      z-index: 100;
     }
 
     .data-point {
@@ -278,13 +283,13 @@
 
     div.tooltip {
       font-family: InterfaceRegular;
-      position: absolute;
+      /* position: absolute; */
       padding: 5px;
       font-size: 12px;
       background: #eef8f9;
       border: 1px solid white;
       border-radius: 0px;
-      min-height: 110px;
+      min-height: 130px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -452,7 +457,7 @@
     <div class="top-text">
       <div class="top-header">
         <h1 class="federal-header">Where Do U.S. Health Reform Proposals Fall on the Medicare-for-All Continuum?</h1>
-        <h1 class="internation-header">Where Do International Health Systems Fall on the Coverage Continuum?</h1>
+        <h1 class="international-header">Where Do International Health Systems Fall on the Coverage Continuum?</h1>
         <div class="system-radios">
           <div class="radio-container">
             <input type="radio" id="federal-radio" name="plans" value="federal" checked/>
@@ -850,7 +855,7 @@
               .remove();
             setTimeout(() => {
               redoOptions();
-              updateTooltips(d);
+              // updateTooltips(d);
             }, 0);
           }
         });
@@ -876,8 +881,8 @@
             </div>
           `)
             .style("width", `calc(100%/${proposalsLength})`)
-            .style("left", (d3.event.target.cx.baseVal.value - 20) + "px")
-            .style("top", (20 + (120 * sectionActive[d.x] - 120)) + "px");
+            .style("margin-left", `calc(100%/${proposalsLength}*${d.x})`);
+            // .style("margin-top", (20 + (140 * sectionActive[d.x] - 140)) + "px");
           div.transition()
             .style("opacity", 1);
           toggleCompareDivs(d);
@@ -899,8 +904,8 @@
             </div>
           `)
             .style("width", `calc(100%/${proposalsLength})`)
-            .style("left", (d3.event.target.cx.baseVal.value - 20) + "px")
-            .style("top", (d3.event.target.cy.baseVal.value + (120 * sectionActive[d.x] - 120)) + "px");
+            .style("margin-left", `calc(100%/${proposalsLength}*${d.x})`);
+            // .style("margin-top", (20 + (140 * sectionActive[d.x] - 140)) + "px");
           div.transition()
             .style("opacity", 1);
           toggleCompareDivs(d);
@@ -997,7 +1002,6 @@
       }
 
       function updateTooltips(d) {
-        var divs = d3.selectAll(`.tooltip-x-${d.x}`);
         d3.selectAll(`.tooltip-x-${d.x}`).each(function(d, i) {
           d3.select(this).style("top", (20 + (120 * (i + 1) - 120)) + "px");
         });
