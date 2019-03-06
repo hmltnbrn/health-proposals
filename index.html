@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Commonwealth Fund - Healthcare Plans</title>
+  <title>Commonwealth Fund - Healthcare Proposals</title>
   <style type="text/css">
 
     @font-face {
@@ -42,6 +42,11 @@
       width: 100%;
       margin: 0 auto;
       max-width: 1000px;
+      padding: 0 25px 100px 25px;
+    }
+
+    .mobile-container {
+      display: none;
     }
 
     .top-header {
@@ -88,6 +93,8 @@
       padding: 15px 30px;
       cursor: pointer;
       z-index: 90;
+      display: flex;
+      text-align: center;
     }
 
     .top-text {
@@ -100,6 +107,10 @@
       font-size: 18px;
       line-height: 1.5;
       color: #5a5e68;
+    }
+
+    .descriptive-text.international-text {
+      display: none;
     }
 
     .international-container {
@@ -121,14 +132,14 @@
       fill: #034e7f;
     }
 
-    .plan-container {
+    .plan-container, .mobile-plan-container {
       display: flex;
       flex-direction: column;
     }
 
     .big-block-container {
       display: flex;
-      height: 105px;
+      height: 110px;
       width: 100%;
       background: linear-gradient(to right, #2d8896, #033865);
     }
@@ -261,6 +272,10 @@
       position: relative;
     }
 
+    .data-point {
+      cursor: pointer;
+    }
+
     div.tooltip {
       font-family: InterfaceRegular;
       position: absolute;
@@ -269,7 +284,6 @@
       background: #eef8f9;
       border: 1px solid white;
       border-radius: 0px;
-      width: calc(100%/6);
       min-height: 110px;
       display: flex;
       flex-direction: column;
@@ -403,19 +417,31 @@
       font-family: InterfaceBold;
       color: #5a5e68;
       font-size: 14px;
-      margin: 10px 0 5px 0;
+      margin: 5px 0;
     }
 
     .full-tooltip p {
       font-size: 14px;
       color: #5a5e68;
+      margin: 0 0 5px 0;
+    }
+
+    .full-tooltip ul {
+      font-size: 14px;
+      color: #5a5e68;
+      padding-inline-start: 25px;
+      margin: 5px 0;
+    }
+
+    .full-tooltip h3:empty, .full-tooltip p:empty {
+      margin: 0;
     }
 
     .full-tooltip a {
       font-family: InterfaceBold;
       color: #f4822f;
       text-decoration: none;
-      margin: 8px 0 0 0;
+      margin: 5px 0 0 0;
     }
 
   </style>
@@ -425,7 +451,8 @@
   <div class="body-container">
     <div class="top-text">
       <div class="top-header">
-        <h1>Where Do <span>Federal Health Proposals</span> Fall in the Coverage Continuum</h1>
+        <h1 class="federal-header">Where Do U.S. Health Reform Proposals Fall on the Medicare-for-All Continuum?</h1>
+        <h1 class="internation-header">Where Do International Health Systems Fall on the Coverage Continuum?</h1>
         <div class="system-radios">
           <div class="radio-container">
             <input type="radio" id="federal-radio" name="plans" value="federal" checked/>
@@ -437,84 +464,111 @@
           </div>
         </div>
       </div>
-      <p>As we head into the 2020 presidential election, here is a continuum of health care proposals, from those that aim to offer universal coverage with little or no cost to consumers and a larger federal role to proposals calling for less-regulated private health plans with lower premiums but greater cost sharing and larger role for states.</p>
+      <div class="descriptive-text federal-text">
+        <p>The health care debate in the 2020 presidential campaign so far has largely focused on Democratic candidates' support for "Medicare for all," or a national health insurance program. In fact, there have been a number of plans proposed to help the United States join other wealthy nations that have achieved universal coverage for their residents.</p>
+        <p>Below, you can see where lawmakers' bills fall on the Medicare-for-all continuum – ranging from those relying on a mix of private and publicly funded health insurance to those featuring only public coverage. You can also compare the benefits each coverage plan would provide, how people would pay for coverage and care, and how the bills would contain overall health care costs. Just click or tap the dots along the continuum.</p>
+        <p>Select "International Health Systems" for a continuum of other countries' health systems.</p>
+      </div>
+      <div class="descriptive-text international-text">
+        <p>The "Medicare for all" debate has sparked interest in how other wealthy nations provide affordable, universal health insurance coverage. While all eight of the health systems featured below include a mix of public and private insurance, we show where they differ in what public financing covers and doesn't cover and how much people pay out of pocket for their health care. Click or tap the dots to compare these countries on how they cover their residents, how people pay for coverage and care, and how health care costs are contained.</p>
+        <p>Select "Federal Health Proposals" to see where federal bills proposed in the U.S. Congress fall on the "Medicare for all" continuum.</p>
+      </div>
     </div>
-    <div class="federal-container">
-      <div class="plan-container">
-        <div class="big-block-container">
-          <div class="big-block one">
-            <h2>Public Plan Features Added to Private Insurance</h2>
+    <div class="desktop-container">
+      <div class="federal-container">
+        <div class="plan-container">
+          <div class="big-block-container">
+            <div class="big-block one">
+              <h2>Public Plan Features Added to Private Insurance</h2>
+            </div>
+            <div class="big-block two">
+              <h2>A Choice of Public and Private Plans</h2>
+            </div>
+            <div class="big-block three">
+              <h2>Single Public Plan for All</h2>
+            </div>
           </div>
-          <div class="big-block two">
-            <h2>A Choice of Public and Private Plans</h2>
-          </div>
-          <div class="big-block three">
-            <h2>Single Public Plan for All</h2>
-          </div>
-        </div>
-        <div class="small-block-container">
-          <div class="small-block one">
-            <h3>More Private Health Plan and Provider Regulation</h3>
-          </div>
-          <div class="small-block two">
-            <h3>Medicare-Like Plan in the Marketplaces</h3>
-          </div>
-          <div class="small-block three">
-            <h3>Medicare-Like Plan for People with Employer Coverage</h3>
-          </div>
-          <div class="small-block four">
-            <h3>Medicare Buy-In for Americans Over 50</h3>
-          </div>
-          <div class="small-block five">
-            <h3>Medicaid Buy-In for All</h3>
-          </div>
-          <div class="small-block six">
-            <h3>National Health Insurance Program</h3>
+          <div class="small-block-container">
+            <div class="small-block one">
+              <h3>More Private Health Plan and Provider Regulation</h3>
+            </div>
+            <div class="small-block two">
+              <h3>Medicare-Like Plan in the Marketplaces</h3>
+            </div>
+            <div class="small-block three">
+              <h3>Medicare-Like Plan for People with Employer Coverage</h3>
+            </div>
+            <div class="small-block four">
+              <h3>Medicare Buy-In for Americans Over 50</h3>
+            </div>
+            <div class="small-block five">
+              <h3>Medicaid Buy-In for All</h3>
+            </div>
+            <div class="small-block six">
+              <h3>National Health Insurance Program</h3>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="international-container">
-      <div class="plan-container">
-        <div class="big-block-container">
-          <div class="big-block all">
-            <h2>Greater Role for Private Financing</h2>
-            <h2>Greater Role for Public Financing</h2>
+      <div class="international-container">
+        <div class="plan-container">
+          <div class="big-block-container">
+            <div class="big-block all">
+              <h2>Greater Role for Private Financing</h2>
+              <h2>Greater Role for Public Financing</h2>
+            </div>
           </div>
-        </div>
-        <div class="small-block-container">
-          <div class="small-block one">
-            <h3>Switzerland</h3>
-          </div>
-          <div class="small-block two">
-            <h3>Australia</h3>
-          </div>
-          <div class="small-block three">
-            <h3>Netherlands</h3>
-          </div>
-          <div class="small-block four">
-            <h3>Canada</h3>
-          </div>
-          <div class="small-block five">
-            <h3>Norway</h3>
-          </div>
-          <div class="small-block six">
-            <h3>Germany</h3>
-          </div>
-          <div class="small-block seven">
-            <h3>Sweden</h3>
-          </div>
-          <div class="small-block eight">
-            <h3>United Kingdom</h3>
+          <div class="small-block-container">
+            <div class="small-block one">
+              <h3>Switzerland</h3>
+            </div>
+            <div class="small-block two">
+              <h3>Australia</h3>
+            </div>
+            <div class="small-block three">
+              <h3>Netherlands</h3>
+            </div>
+            <div class="small-block four">
+              <h3>Canada</h3>
+            </div>
+            <div class="small-block five">
+              <h3>Norway</h3>
+            </div>
+            <div class="small-block six">
+              <h3>Germany</h3>
+            </div>
+            <div class="small-block seven">
+              <h3>Sweden</h3>
+            </div>
+            <div class="small-block eight">
+              <h3>United Kingdom</h3>
+            </div>
           </div>
         </div>
       </div>
+      <div id="timeline-container" class="timeline-container">
+      </div>
+      <div class="select-proposal-container">
+        <div class="compare-proposal-container"></div>
+        <p class="select-proposal-text">Select a <span>proposal</span> on the continuum to learn more and compare.</p>
+      </div>
     </div>
-    <div id="timeline-container" class="timeline-container">
-    </div>
-    <div class="select-proposal-container">
-      <div class="compare-proposal-container"></div>
-      <p class="select-proposal-text">Select a <span>proposal</span> on the continuum to learn more and compare.</p>
+    <div class="mobile-container">
+      <!-- <div class="mobile-federal-container">
+        <div class="mobile-plan-container">
+          <div class="mobile-big-block-container">
+            <div class="mobile-big-block one">
+              <h2>Public Plan Features Added to Private Insurance</h2>
+            </div>
+            <div class="mobile-big-block two">
+              <h2>A Choice of Public and Private Plans</h2>
+            </div>
+            <div class="mobile-big-block three">
+              <h2>Single Public Plan for All</h2>
+            </div>
+          </div>
+        </div>
+      </div> -->
     </div>
   </div>
   <script src="https://d3js.org/d3.v3.min.js"></script>
@@ -553,20 +607,29 @@
       return this;
     }
 
+    var system = "federal";
+
     d3.selectAll("input[name='plans']").on("change", function() {
-      let system = this.value;
+      system = this.value;
       if(system === "federal") {
         d3.select(".federal-container").show();
         d3.select(".international-container").hide();
         d3.select(".select-proposal-text span").text("proposal");
-        d3.select("h1 span").text("Federal Health Proposals");
+        d3.select("h1.federal-header").show();
+        d3.select("h1.international-header").hide();
+        d3.select(".descriptive-text.federal-text").show();
+        d3.select(".descriptive-text.international-text").hide();
       }
       else if(system === "international") {
         d3.select(".international-container").show();
         d3.select(".federal-container").hide();
         d3.select(".select-proposal-text span").text("country");
-        d3.select("h1 span").text("International Health Systems");
+        d3.select("h1.international-header").show();
+        d3.select("h1.federal-header").hide();
+        d3.select(".descriptive-text.international-text").show();
+        d3.select(".descriptive-text.federal-text").hide();
       }
+      renderAll();
     });
 
     document.addEventListener('click', function(e) {
@@ -586,11 +649,59 @@
     });
 
     queue()
-      .defer(d3.json, 'data/plans.json')
-      .defer(d3.json, 'data/proposals.json')
-      .await(renderAll);
-    
-    function renderAll(error, plans, proposals) {
+      .defer(d3.json, 'data/federal-proposals.json')
+      .defer(d3.json, 'data/international-systems.json')
+      .await(checkSize);
+
+    window.addEventListener('resize', checkSize);
+    window.addEventListener('orientationchange', checkSize);
+
+    var federalData;
+    var internationalData;
+    var firstTime = true;
+    var mobile = false;
+
+    function checkSize(error, federalProposals, internationalSystems) {
+      if(firstTime) {
+        federalData = federalProposals;
+        internationalData = internationalSystems;
+        firstTime = false;
+      }
+      if(screen.width <= 768 || window.innerWidth <= 768) {
+        mobile = true;
+        d3.select(".mobile-container").show();
+        d3.select(".desktop-container").hide();
+      }
+      else {
+        mobile = false;
+        d3.select(".desktop-container").show();
+        d3.select(".mobile-container").hide();
+      }
+      renderAll();
+    }
+
+    function renderAll() {
+      if(!mobile) {
+        if(system === "federal") {
+          renderDesktop(federalData);
+        }
+        else if(system === "international") {
+          renderDesktop(internationalData);
+        }
+      }
+      else {
+        if(system === "federal") {
+          renderMobile(federalData);
+        }
+        else if(system === "international") {
+          renderMobile(internationalData);
+        }
+      }
+    }
+
+    function renderDesktop(proposals) {
+
+      d3.select("#desktop-timeline").remove();
 
       var chartDiv = document.getElementById("timeline-container");
       var w = chartDiv.clientWidth,
@@ -599,6 +710,7 @@
           radius = 7;
 
       var svg = d3.select(".timeline-container").append("svg").attr({
+        id: "desktop-timeline",
         width: w,
         height: h,
         transform: "translate(" + [0, -1*margin.top] + ")",
@@ -654,17 +766,36 @@
         "stroke-width": "7px"
       }).call(xAxis);
 
-      var proposalsLength = proposals.length;
+      var proposalsLength = [...new Set(proposals.map(value => value.x))].length;
+      var previousCxValue;
+      var previousColorValue;
+      var cxOffset = 2;
+      var colorOffset = 2;
+      var proposalsCounted = {};
+      proposals.forEach(function(d) {
+        proposalsCounted[d.x] = (proposalsCounted[d.x] || 0) + 1;
+      });
 
       var circleAttrs = {
-        cx: function(d) { return xScale((d.x * 100 / proposalsLength) + 2); },
+        cx: function(d) {
+          if(previousCxValue && previousCxValue === d.x) cxOffset += (100/proposalsLength) / proposalsCounted[d.x];
+          else cxOffset = 2;
+          let cx = xScale((d.x * 100 / proposalsLength) + cxOffset);
+          previousCxValue = d.x;
+          return cx;
+        },
         cy: 20,
         r: radius,
         stroke: "white",
         "stroke-width": "1px",
         fill: function(d) {
-          return colorLine((d.x * 100 / proposalsLength) + 2);
-        }
+          if(previousColorValue && previousColorValue === d.x) colorOffset += (100/proposalsLength) / proposalsCounted[d.x];
+          else colorOffset = 2;
+          let color = colorLine((d.x * 100 / proposalsLength) + colorOffset);
+          previousColorValue = d.x;
+          return color;
+        },
+        class: "data-point"
       };
 
       var clicked = [];
@@ -672,41 +803,42 @@
       var moused = [];
 
       let circles = svg.selectAll("circle")
-        .data(proposals)
-        .enter()
+        .data(proposals);
+
+      circles.enter()
         .append("circle")
         .attr(circleAttrs)
         .on("mouseover", mouseOver)
         .on("mouseout", function(d) {
-          if(clicked.indexOf(d.x) === -1) {
-            moused[d.x] = false;
-            d3.select(`.tooltip-${d.x}`).transition()
+          if(clicked.indexOf(d.id) === -1) {
+            moused[d.id] = false;
+            d3.select(`.tooltip-${d.id}`).transition()
               .style("opacity", 0);
-            d3.selectAll(`.tooltip-${d.x}`)
+            d3.selectAll(`.tooltip-${d.id}`)
               .remove();
           }
         })
         .on("click", function(d) {
-          var index = clicked.indexOf(d.x);
-          var checkIndex = checking.indexOf(d.x);
+          var index = clicked.indexOf(d.id);
+          var checkIndex = checking.indexOf(d.id);
           if(index === -1) {
-            clicked.push(d.x);
-            if(!moused[d.x]) {
+            clicked.push(d.id);
+            if(!moused[d.id]) {
               mouseOver(d);
-              moused[d.x] = true;
+              moused[d.id] = true;
             }
           }
           else {
-            moused[d.x] = false;
-            d3.select(`.tooltip-${d.x}`).transition()
+            moused[d.id] = false;
+            d3.select(`.tooltip-${d.id}`).transition()
               .style("opacity", 0);
-            d3.selectAll(`.tooltip-${d.x}`)
+            d3.selectAll(`.tooltip-${d.id}`)
               .remove();
             if(index !== -1) clicked.splice(index, 1);
             if(checkIndex !== -1) checking.splice(checkIndex, 1);
-            d3.select(`.full-tooltip-${d.x}`).transition()
+            d3.select(`.full-tooltip-${d.id}`).transition()
               .style("opacity", 0);
-            d3.selectAll(`.full-tooltip-${d.x}`)
+            d3.selectAll(`.full-tooltip-${d.id}`)
               .remove();
             setTimeout(() => {
               redoOptions();
@@ -714,45 +846,49 @@
           }
         });
 
+      circles.exit().remove();
+
       function mouseOver(d) {
-        if(clicked.indexOf(d.x) === -1) {
-          moused[d.x] = true;
+        if(clicked.indexOf(d.id) === -1) {
+          moused[d.id] = true;
           var div = d3.select("#timeline-container")
             .append("div")
-            .attr("class", `tooltip tooltip-${d.x}`)
+            .attr("class", `tooltip tooltip-${d.id}`)
             .style("opacity", 0);
           div.html(`
             <h2 class="tooltip-name">${d.name}</h2>
             <div class="compare-bottom">
               <div class="compare-check">
                 <label>
-                  <input type="checkbox" id="compare-input" class="compare-${d.x}"><span class="outer-span"><span>COMPARE</span> <i class="material-icons">radio_button_unchecked</i></span>
+                  <input type="checkbox" id="compare-input" class="compare-${d.id}"><span class="outer-span"><span>COMPARE</span> <i class="material-icons">radio_button_unchecked</i></span>
                 </label>
               </div>
             </div>
           `)
+            .style("width", `calc(100%/${proposalsLength})`)
             .style("left", (d3.event.target.cx.baseVal.value - 20) + "px")
             .style("top", (d3.event.target.cy.baseVal.value) + "px");
           div.transition()
             .style("opacity", 1);
           toggleCompareDivs(d);
         }
-        else if(clicked.indexOf(d.x) !== -1 && !moused[d.x]) {
-          moused[d.x] = true;
+        else if(clicked.indexOf(d.id) !== -1 && !moused[d.id]) {
+          moused[d.id] = true;
           var div = d3.select("#timeline-container")
             .append("div")
-            .attr("class", `tooltip tooltip-${d.x}`)
+            .attr("class", `tooltip tooltip-${d.id}`)
             .style("opacity", 0);
           div.html(`
             <h2 class="tooltip-name">${d.name}</h2>
             <div class="compare-bottom">
               <div class="compare-check">
                 <label>
-                  <input type="checkbox" id="compare-input" class="compare-${d.x}"><span class="outer-span"><span>COMPARE</span> <i class="material-icons">radio_button_unchecked</i></span>
+                  <input type="checkbox" id="compare-input" class="compare-${d.id}"><span class="outer-span"><span>COMPARE</span> <i class="material-icons">radio_button_unchecked</i></span>
                 </label>
               </div>
             </div>
           `)
+            .style("width", `calc(100%/${proposalsLength})`)
             .style("left", (d3.event.target.cx.baseVal.value - 20) + "px")
             .style("top", (d3.event.target.cy.baseVal.value) + "px");
           div.transition()
@@ -762,50 +898,82 @@
       }
 
       function toggleCompareDivs(d) {
-        document.querySelector(`.compare-${d.x}`).addEventListener("change", function(e) {
+        document.querySelector(`.compare-${d.id}`).addEventListener("change", function(e) {
           let checked = d3.select(this).property("checked");
-          let index = checking.indexOf(d.x);
+          let index = checking.indexOf(d.id);
           if (checked && index === -1) {
             d3.select(".select-proposal-text").hide();
             d3.select(".compare-proposal-container").showFlex();
-            checking.push(d.x);
+            checking.push(d.id);
             var divs = d3.select(".compare-proposal-container")
               .append("div")
-              .attr("class", `full-tooltip full-tooltip-${d.x}`)
+              .attr("class", `full-tooltip full-tooltip-${d.id}`)
               .style("opacity", 0);
-            divs.html(`
-              <div class="option-head">
-                <h4 class="option-head-number">Option ${checking.length}</h4>
-                <div class="close-full-tooltip">
-                  <i id="close-${d.x}" class="material-icons x-full-tooltip">close</i>
-                </div>
-              </div>
-              <h2>${d.name}</h2>
-              <h3>Sponsor</h3>
-              <p>${d.sponsor}</p>
-              <h3>Coverage Enhancement</h3>
-              <p>${d.benefit}</p>
-              <h3>Where Is It Offered</h3>
-              <p>${d.coverage}</p>
-              <h3>Financials</h3>
-              <p>${d.cost}</p>
-              ${d.transition ? "<h3>Transition</h3><p>" + d.transition + "</p>" : "<span></span>"}
-              <a href="${d.link}">Read the bill</a>
-            `);
+            divs.html(setFullTooltopHtml(d));
             divs.transition()
               .style("opacity", 1);
           }
           else if(!checked) {
             if(index !== -1) checking.splice(index, 1);
-            d3.select(`.full-tooltip-${d.x}`).transition()
+            d3.select(`.full-tooltip-${d.id}`).transition()
               .style("opacity", 0);
-            d3.selectAll(`.full-tooltip-${d.x}`)
+            d3.selectAll(`.full-tooltip-${d.id}`)
               .remove();
           }
           setTimeout(() => {
             redoOptions();
           }, 0);
         });
+      }
+
+      function setFullTooltopHtml(d) {
+        if(system === "federal") {
+          let transitionHeader = d.transition.time || "";
+          let transitionText = d.transition.text || "";
+          return `
+            <div class="option-head">
+              <h4 class="option-head-number">Option ${checking.length}</h4>
+              <div class="close-full-tooltip">
+                <i id="close-${d.id}" class="material-icons x-full-tooltip">close</i>
+              </div>
+            </div>
+            <h2>${d.name}</h2>
+            <h3>Sponsor</h3>
+            <p>${d.sponsor}</p>
+            <h3>New Coverage Enhancement or Option</h3>
+            <p>${d.enhancement}</p>
+            <h3>Who Is Eligible?</h3>
+            <p>${d.eligibility}</p>
+            <h3>How Do People Pay for Coverage and Health Care?</h3>
+            <p>${d.cost}</p>
+            <h3>How Are Health Care Costs Managed?</h3>
+            <p>${d.management}</p>
+            <h3>${transitionHeader}</h3>
+            <p>${transitionText}</p>
+            <a href="${d.link}" target="_blank">Read the bill</a>
+          `;
+        }
+        else if(system === "international") {
+          return `
+            <div class="option-head">
+              <h4 class="option-head-number">Option ${checking.length}</h4>
+              <div class="close-full-tooltip">
+                <i id="close-${d.id}" class="material-icons x-full-tooltip">close</i>
+              </div>
+            </div>
+            <h2>${d.name}</h2>
+            <h3>How Are People Covered?</h3>
+            <p>${d.coverage.text}</p>
+            <ul>
+              ${d.coverage.bullets.map(b => `<li>${b}</li>`).join("")}
+            </ul>
+            <h3>How Do People Pay for Coverage and Health Care?</h3>
+            ${d.cost.map(c => `<p>${c}</p>`).join("")}
+            <h3>How Are Health Care Costs Managed?</h3>
+            ${d.management.map(m => `<p>${m}</p>`).join("")}
+            ${d.links.map(l => `<a href="${l.link}" target="_blank">${l.text}</a>`).join("")}
+          `;
+        }
       }
 
       function redoOptions() {
@@ -818,6 +986,9 @@
         }
       }
 
+    }
+
+    function renderMobile(proposals) {
     }
 
   </script>

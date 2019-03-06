@@ -1,0 +1,208 @@
+[
+  {
+    "id": 0,
+    "x": 0,
+    "name": "Australia",
+    "coverage": {
+      "text": "Australia has a regionally administered, universal public health insurance program, Australian Medicare, with automatic enrollment for citizens. Permanent residents can enroll in basic coverage.",
+      "bullets": [
+        "The Medicare Benefits Scheme determines comprehensive benefits, such as hospital and physician services including mental health and maternity care, prescription drugs, and children’s dental care. Long-term care is funded separately through various state and federal government-funded programs. Dental care for adults is also not covered.",
+        "Private insurance plays a major role; approximately half of Australians buy supplementary coverage for private hospitals, dental services, vision, and other services. The federal government pays a rebate toward private insurance premiums and charges higher-income households a tax penalty for not taking up private insurance."
+      ]
+    },
+    "cost": [
+      "Taxes (general and income) and private insurance (see above)."
+    ],
+    "management": [
+      "The federal government sets an annual budget. Hospital payments are tied to the “efficient price of delivering services” determined by the Independent Hospital Pricing Authority. Drugs covered under Medicare must have been demonstrated to be cost-effective by the independent Pharmaceutical Benefits Advisory Committee. The Pharmaceutical Benefit Scheme negotiates drug prices with suppliers. The federal government regulates private insurance premiums. There is primary care (general practitioner) gatekeeping for specialist services."
+    ],
+    "links": [
+      {
+        "text": "Read more about the Australian health care system",
+        "link": "https://international.commonwealthfund.org/countries/australia/"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "x": 1,
+    "name": "Canada",
+    "coverage": {
+      "text": "Canada has a decentralized, universal health system called Canadian Medicare. Each of Canada’s 13 provinces and territories has its own health insurance program; residents are automatically enrolled in their local plan.",
+      "bullets": [
+        "All regional health plans provide full coverage for medically necessary physician visits, diagnostic testing, and hospital care, including inpatient drugs. Benefits vary across regional plans for noncovered benefits, including outpatient prescription drugs, ambulance fees, mental health, vision care, and dental services. Long-term-care services provided outside the hospital are typically funded separately by provinces and territories, with varying levels of benefits and coverage.",
+        "The majority of Canadians have private insurance, primarily through their employers, to help pay for noncovered services, including outpatient prescription drugs. Most provinces and territories also offer outpatient drug plans to individuals without employer drug coverage, such as the unemployed and seniors."
+      ]
+    },
+    "cost": [
+      "Mostly through provincial and territorial taxes, and private insurance. Cost-sharing applies only to noncovered benefits, including outpatient prescription drugs. Most provinces operate public drug plans targeting vulnerable populations, including low-income people, older adults, and in some provinces, children. Out-of-pocket fees for these plans vary depending on region and target population. Some plans have annual out-of-pocket limits, often scaled to income.",
+      "Individuals with significant out-of-pocket expenses are eligible for federal tax credit relief. Fees are also charged for private hospital rooms."
+    ],
+    "management": [
+      "Single-payer purchasing is one way Canadian Medicare contains costs. Regional health plans purchase brand-name and generic drugs through the Pan-Canadian Pharmaceutical Alliance. Since 2010, the Alliance has negotiated lower prices for 95 brand-name medications and has set price limits at 18 percent of equivalent brand-name drugs for the 15 most common generics. In addition, a national health technology assessment process examines clinical and cost-effectiveness of new drugs and medical technologies.",
+      "Other cost management strategies include setting fixed fees and budgets for providers and developing workforce quotas. General practitioners also serve as gatekeepers; specialists are paid lower fees for services to patients not referred by a GP."
+    ],
+    "links": [
+      {
+        "text": "Listen to a physician’s experience of the Canadian health care system",
+        "link": "https://www.commonwealthfund.org/publications/podcast/2018/oct/truth-about-waiting-see-doctor-canada"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "x": 2,
+    "name": "England",
+    "coverage": {
+      "text": "All English residents are automatically enrolled in public health coverage through the National Health Service (NHS).",
+      "bullets": [
+        "The NHS’s comprehensive coverage includes hospital care, physician services (both primary and specialty care), mental health, rehabilitation, and inpatient and outpatient drugs. The government also provides dental and vision benefits to young people and other vulnerable groups. The NHS also covers long-term-care services needed resulting from an illness, accident, or disability. Other long-term care is provided on a means-tested basis by local authorities.",
+        "Private insurance plays a small role in England. Approximately 10.5 percent of residents purchase individual policies or obtain private insurance through their employers, which is primarily used to gain more rapid access to elective care."
+      ]
+    },
+    "cost": [
+      "General taxation, plus a payroll tax paid by employers and employees; some people also purchase private insurance (see above). Under the NHS, cost-sharing is limited to outpatient prescription drugs. Individuals pay USD 12.50 per prescription and individuals who need multiple medications can save money by purchasing prepayment certificates (approximately USD 150 per year) that allow limitless use. Prescription drugs, dental care, vision tests, and transportation to provider sites is free of charge for certain vulnerable groups such as children and young people, pregnant women, older adults, and low-income adults. There are no out-of-pocket fees for public hospital or physician visits, but private hospitals are not covered under the NHS."
+    ],
+    "management": [
+      "The national health care budget cannot be exceeded; administrators and providers need to balance their budget every year. Bulk purchasing also contains costs. A voluntary agreement between the United Kingdom and the pharmaceutical industry caps branded-drug sales growth at 2 percent a year. In addition, health technology appraisals assess the cost-effectiveness of new innovations.",
+      "General practitioners (GPs) and hospitals are primarily reimbursed under fixed rates and capitation. GPs also serve as gatekeepers for specialty services. Specialty physicians are mostly salaried employees of public hospitals."
+    ],
+    "links": [
+      {
+        "text": "To hear from an English primary care physician, listen to “The Doctor Who Prescribed Cooking Classes”",
+        "link": "https://www.commonwealthfund.org/publications/podcast/2018/oct/doctor-who-prescribed-cooking-classes"
+      },
+      {
+        "text": "Read more about the English health care system",
+        "link": "https://international.commonwealthfund.org/countries/england/"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "x": 3,
+    "name": "Germany",
+    "coverage": {
+      "text": "Health insurance is mandatory, and most residents are enrolled in one of the 110 nonprofit, nongovernmental statutory health insurance plans, known as sickness funds.",
+      "bullets": [
+        "Statutory health insurance coverage is comprehensive and includes inpatient and outpatient care, mental health, prescription drugs, basic and preventive dental care, vision care, and rehabilitation. Germans and their employers also contribute to a separate national long-term-care insurance program.",
+        "Germans earning more than USD 76,000 a year and self-employed individuals can opt out of statutory health insurance and purchase private insurance instead; about 11 percent do. In addition, 10.6 percent of people in statutory health insurance purchase complementary private insurance to help cover services not covered or only partially covered by statutory health insurance."
+      ]
+    },
+    "cost": [
+      "Wage contributions shared by employees and employers; some sickness funds also charge enrollees an income-dependent fee. Cost-sharing is through government-determined copayments that apply to all sickness funds and deductibles that are determined by individual sickness funds. There is no cost-sharing for preventive services or physician visits (primary care or specialists), and physicians cannot bill above the national fee schedule. Copayments apply to hospital care (USD 12.84 per day, up to USD 359 per year), and prescription drugs (USD 6.42–12.84 per outpatient prescription). Children are exempt from cost-sharing, and there’s an annual out-of-pocket maximum: 2 percent of household income for healthy adults or 1 percent for the chronically ill."
+    ],
+    "management": [
+      "Germany has placed various cost controls on prescription drugs. Medications with an unfavorable benefit-risk assessment are not covered, and covered drugs are grouped by therapeutic class and assigned a maximum reimbursement amount, or reference price. For new drugs with added benefit, the Federal Association of Sickness Funds negotiates a reimbursement price on the manufacturer’s price. In addition, sickness funds collectively negotiate uniform fee schedules with provider associations at a regional level and individual sickness funds can negotiate selective integrative care contracts with providers and rebates with pharmaceutical companies."
+    ],
+    "links": [
+      {
+        "text": "Learn more about reference pricing for prescription drugs in Germany",
+        "link": "https://www.commonwealthfund.org/publications/issue-briefs/2019/jan/reference-pricing-germany-implications"
+      },
+      {
+        "text": "Read more about the German health care system",
+        "link": "https://international.commonwealthfund.org/countries/germany/"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "x": 4,
+    "name": "The Netherlands",
+    "coverage": {
+      "text": "Residents are required to purchase statutory health insurance from private nonprofit insurers, offered on a national exchange.",
+      "bullets": [
+        "Coverage requirements are mandated by the government and include hospital care, physician services, home nursing, mental health care, and prescription drugs. The government also fully covers children’s dental care and physical therapy visits. Long-term care is financed separately through a separate statutory insurance program, funded through a mandatory income tax.",
+        "Private insurance plays a major role. More than 80 percent of residents having a policy to help pay for services not covered by statutory health insurance as well as copayments for brand-name medicines."
+      ]
+    },
+    "cost": [
+      "Individuals contribute payroll taxes and premiums, with 30 percent of the population receiving income-related premium subsidies from the government; employers contribute 6.95 percent of wages, and general taxation. Cost-sharing includes copayments on specialty services, hospitalizations, and prescription drugs, up to an annual deductible (USD 475 in 2018). Whenever generic equivalents are available, copayments on brand-name drugs apply even after the deductible. GP care, preventive services, and children’s health care up to age 18 are generally exempt from cost-sharing."
+    ],
+    "management": [
+      "The government determines what services are covered under statutory health insurance and sets an annual budget. General practitioners also serve as gatekeepers for specialty and hospital services. Various approaches are being used to contain prescription drug costs. For example, the Health Ministry negotiates lower prices on expensive drugs with drug manufacturers, and health technology assessments are used to guide coverage decisions. The government also manages competition among health providers and insurers.",
+      "In addition, private insurers negotiate payment rates with providers for approximately 70 percent of hospital services and expensive drugs. The remaining provider payment rates are set through a national fee scale. Netherlands also has implemented bundled payments for diabetes, chronic obstructive pulmonary disease, and cardiovascular risk management."
+    ],
+    "links": [
+      {
+        "text": "Read more about the Dutch health care system",
+        "link": "https://international.commonwealthfund.org/countries/netherlands/"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "x": 5,
+    "name": "Norway",
+    "coverage": {
+      "text": "Enrollment in Norway’s single-payer public health system is automatic for residents.",
+      "bullets": [
+        "Coverage under the national insurance program encompasses hospital care, primary care, specialty care, mental health, prescription drugs, and preventive services. Dental care for children up to age 18 and for individuals with chronic diseases is fully covered. Long-term care is funded separately by municipalities.",
+        "Private insurance is held by a minority of Norwegians (10%) and is mostly paid by employers. Private insurance is primarily used to gain quicker access to elective care and a greater choice of private providers."
+      ]
+    },
+    "cost": [
+      "National and municipal general taxes, a national insurance payroll tax contribution paid by employers and employees, and private insurance. Cost-sharing takes the form of copayments. Norwegians pay USD 19 to 42 for primary care visits, for example, and up to USD 51 per outpatient prescription drug. There is no cost-sharing with hospital visits. Total out-of-pocket costs are capped at about USD 221 per person (2017). Cost-sharing does not apply to preventive services, maternity care for pregnant women, or treatment for sexually transmitted diseases; in addition, children and youth are exempt from all cost-sharing."
+    ],
+    "management": [
+      "Municipalities and regional health authorities are responsible for maintaining annual health budgets set by the central government. In addition, the Norwegian Medicines Agency works to contain prescription drug costs by evaluating the cost-effectiveness of new drugs for inclusion and reimbursement on the national drug formulary, setting maximum drug prices, and encouraging the use of generics. General practitioners (GPs) serve as gatekeepers for specialty services. Hospital-based specialists are salaried and private practice physicians are paid through a combination of fee-for-service payments negotiated between government and the medical association, per-capita payments from municipalities (GPs only), annual lump sums determined by type of practice and number of registered patients (specialists only), and patient copayments."
+    ],
+    "links": [
+      {
+        "text": "Read more about the Norwegian health care system",
+        "link": "https://international.commonwealthfund.org/countries/norway/"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "x": 6,
+    "name": "Sweden",
+    "coverage": {
+      "text": "Residents are automatically enrolled in Sweden’s public coverage, which is nationally regulated but administered locally by county councils and municipalities.",
+      "bullets": [
+        "Coverage includes primary, specialty, and inpatient care; mental health; prescription drugs (inpatient and outpatient); medical equipment; and rehabilitation. Dental and vision care are covered for children and young people, and some adult dental care is also covered. Long-term care is funded separately by municipalities.",
+        "Private insurance is held by 6 percent of Swedes and enables quicker access to elective care and a greater choice of private providers. Most policies are purchased by employers for workers."
+      ]
+    },
+    "cost": [
+      "County council and municipal income taxes and some federal government grants that redistribute resources among municipalities and county councils based on need. Cost-sharing is determined by county councils and varies from region to region. Patients owe copayments for most services, including USD 16 to 33 for general practitioner visits. For specialist visits referred by a general practitioner, there is no cost-sharing. Children and youth, and adults age 85 or older are exempt from copayments for outpatient visits. An annual cap of USD 120 applies to all physician and hospital services. Patients pay the full price on prescription drugs, up to USD 123 annually. When this threshold is reached, a subsidy kicks in to help cover costs up to a USD 246 annual ceiling, above which drugs are free. Dental care is free of charge for children and youth under age 23."
+    ],
+    "management": [
+      "Swedish law requires county councils and municipalities to balance their annual budgets. A national formulary of covered medications helps manage drug costs. Value-based pricing is also used to identify the right price for a drug or specialized service, such as a knee replacement, based on a cost-effectiveness analysis.",
+      "Contracts between county councils and private specialists are usually based on a bidding process in which costs constitute one of the variables used to evaluate providers. Value-based payment arrangements with providers, including global budgets, volume caps, and capitation formulas, also contain costs."
+    ],
+    "links": [
+      {
+        "text": "Read more about the Swedish health care system",
+        "link": "https://international.commonwealthfund.org/countries/sweden/"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "x": 7,
+    "name": "Switzerland",
+    "coverage": {
+      "text": "Residents are required to purchase mandatory health insurance from competing nonprofit insurers on regional exchanges.",
+      "bullets": [
+        "Mandatory health insurance coverage includes most visits to general practitioners and specialty physicians, hospital inpatient care, pharmaceuticals and medical devices, home care, physiotherapy, preventive services, and mental health care. Vision and dental care are covered for children up to age 18. Hospice is covered if there is an underlying disease. Long-term care is funded separately by municipalities.",
+        "Supplementary private insurance is available from for-profit insurers to help pay for services not covered under mandatory coverage and for a wider choice of physicians or improved hospital amenities such as private rooms."
+      ]
+    },
+    "cost": [
+      "Enrollee premiums averaged USD 4,615 per adult in 2018; dependents are extra. The federal and cantonal (state) governments offer income-based premium subsidies. Cantonal taxes and social insurance contributions also fund coverage. Cost-sharing includes copayments until an annual deductible has been met, followed by coinsurance, which is capped. In the case of hospitalizations, copayments and coinsurance are paid following the deductible. Patients are liable for the full cost of primary care consultations, specialist consultations, hospitalizations, and prescription drugs, until the annual deductible is met, which varies from USD 248 to USD 2,065. After the deductible is met, patients pay coinsurance for physician services (10%), hospital stays (10% plus USD 12 per day for adults), and prescription medications (10% for generics and 20% for brand-name drugs). Maternity care and some preventive services are exempt from cost-sharing; children are exempt from copayments for inpatient stays and insurers must offer zero-deductible plans for children. There’s also a cap on coinsurance, USD 579 per year for adults and USD 289 for children."
+    ],
+    "management": [
+      "Physician payments are set according to a national fee scale or, less commonly, through capitation. Billing above the fee schedule is not permitted. Hospital-based physicians are normally salaried. In addition, hospital capacity must be reviewed by the cantons, and the Federal Office of Public Health sets ceilings for premiums. People can choose to enroll in an accountable care or managed care organization for a reduced premium.",
+      "To help control prescription drug costs, coverage decisions on all new medicines are subject to a cost-effectiveness evaluation. Generic drug prices are set lower (20%–50%) than brand-name drug prices. Pharmacists are largely reimbursed at flat rates, so they are not financially incentivized to dispense more-expensive drugs. In addition, a reference pricing system for pharmaceuticals with expired patents was adopted in 2018."
+    ],
+    "links": [
+      {
+        "text": "Read more about the Swiss health care system",
+        "link": "https://international.commonwealthfund.org/countries/switzerland/"
+      }
+    ]
+  }
+]

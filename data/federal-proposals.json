@@ -1,0 +1,152 @@
+[
+  {
+    "id": 0,
+    "x": 0,
+    "name": "Consumer Health Insurance Protection Act of 2018 (S. 2582)",
+    "sponsor": "Sen. Elizabeth Warren (D–Mass.), 2018",
+    "enhancement": "Extends and enhances premium subsidies for marketplace plans and makes it easier for people with unaffordable employer plans to become eligible for marketplace subsidies. Reduces cost-sharing in marketplace plans for those with incomes under 400 percent of the federal poverty level (up to $48,560 for an individual), including a monthly cap on prescription drug spending. Insurers that offer Medicare Advantage or Medicaid in a region must also offer marketplace plans.",
+    "eligibility": "All not eligible for employer coverage, Medicaid, or Medicare.",
+    "cost": "Premiums and any deductibles and copayments or coinsurance that are part of their plan.",
+    "management": "Decreases the share of premium dollars insurers can pocket as profits or use for administrative expenses. Federal or state governments may prohibit premium increases in the individual market they deem unreasonable.",
+    "transition": {
+      "time": "",
+      "text": ""
+    },
+    "link": "https://www.congress.gov/bill/115th-congress/senate-bill/2582"
+  },
+  {
+    "id": 1,
+    "x": 1,
+    "name": "Medicare-X Choice Act of 2017 (S. 1970, H.R. 4094)",
+    "sponsor": "Sen. Michael Bennet (D–Colo.), 2017; Rep. Brian Higgins (D–N.Y.), 2017",
+    "enhancement": "Creates a new health insurance marketplace public plan option, the Medicare Exchange plan, that meets marketplace standards and is separate from the Medicare program.",
+    "eligibility": "Premiums, as well as any deductibles and copays or coinsurance that are part of their plan.",
+    "cost": "Premiums, as well as any deductibles and copayments or coinsurance that are part of their plan.",
+    "management": "The U.S. Department of Health and Human Services Secretary sets premiums for the Medicare Exchange plan and negotiates prescription drug prices; the Veterans Affairs prescription drug price is the fallback if negotiations fail. Physicians, hospitals, and other providers participating in Medicare or Medicaid also must participate in the Medicare Exchange plan. Providers in the Medicare Exchange plan are reimbursed at Medicare rates; higher in rural areas as needed. The Secretary may use innovative payment policies to encourage high-value care and delivery system reform, integrate social services, and promote telehealth.",
+    "transition": {
+      "time": "",
+      "text": ""
+    },
+    "link": "https://www.congress.gov/bill/115th-congress/senate-bill/1970"
+  },
+  {
+    "id": 2,
+    "x": 2,
+    "name": "Choose Medicare Act (S. 2708, H.R. 6117)",
+    "sponsor": "Sen. Jeff Merkley (D–Ore.), 2018; Rep. Cedric Richmond (D–La.), 2018",
+    "enhancement": "Creates a new health insurance marketplace public plan option, Medicare Part E, that meets marketplace standards. Employers may offer Medicare Part E. Enhances marketplace premium and cost-sharing reduction subsidies. Caps out-of-pocket costs for Medicare Parts A and B.",
+    "eligibility": "All not eligible for Medicare or Medicaid.",
+    "cost": "Premiums, as well as any deductibles and copayments or coinsurance that are part of their plan.",
+    "management": "The U.S. Department of Health and Human Services Secretary sets premiums for Medicare Part E plans. Secretary negotiates provider payment rates that must not be lower than Medicare rates or higher than rates paid by commercial insurers offering marketplace plans. Secretary negotiates prescription drug prices for both Medicare Part E and the existing Part D program; the Veteran Affairs prescription drug price is the fallback if negotiations fail. Providers participating in Medicare also must participate in the Medicare Exchange plan. Provides funding for states to establish reinsurance programs.",
+    "transition": {
+      "time": "",
+      "text": ""
+    },
+    "link": "https://www.congress.gov/bill/115th-congress/senate-bill/2708"
+  },
+  {
+    "id": 3,
+    "x": 3,
+    "name": "Medicare Buy-In and Health Care Stabilization Act of 2017 (H.R. 3748)",
+    "sponsor": "Rep. Brian Higgins (D–N.Y.), 2017",
+    "enhancement": "People ages 50 to 64 may buy a plan with Medicare benefits for an annual premium. Those eligible for marketplace premium and cost-sharing subsides could apply them to the plan. Extends and enhances cost-sharing reduction subsidies. Employers may pay premiums for eligible employees.",
+    "eligibility": "People ages 50 to 64 not eligible for Medicare.",
+    "cost": "Premiums, as well as any deductibles and copayments or coinsurance that are part of the plan.",
+    "management": "The U.S. Department of Health and Human Services would set the premium. Would establish the Medicare Buy-in Trust Fund, separate from the Medicare Trust Fund. Providers are paid at Medicare rates. HHS would negotiate Medicare Part D prescription drug prices. Reinstates the Affordable Care Act’s cost-sharing reduction payments to insurers and reinsurance program. Extends risk corridor program to offset insurer losses through 2020.",
+    "transition": {
+      "time": "",
+      "text": ""
+    },
+    "link": "https://www.congress.gov/bill/115th-congress/house-bill/3748"
+  },
+  {
+    "id": 4,
+    "x": 3,
+    "name": "Medicare at 55 Act (S. 1742)",
+    "sponsor": "Sen. Debbie Stabenow (D–Mich.), 2017",
+    "enhancement": "People ages 50 to 64 may buy a plan with Medicare benefits for an annual premium. Those eligible for marketplace premium and cost-sharing subsidies could apply them to the plan. The plan would be offered at the silver level through the marketplaces.",
+    "eligibility": "People ages 50 to 64 not eligible for Medicare.",
+    "cost": "Premiums, as well as any deductibles and copayments or coinsurance that are part of the plan.",
+    "management": "The U.S. Department of Health and Human Services would set the premium. Would establish the Medicare Buy-in Trust Fund, separate from the Medicare Trust Fund. Providers are paid at Medicare rates.",
+    "transition": {
+      "time": "",
+      "text": ""
+    },
+    "link": "https://www.congress.gov/bill/115th-congress/senate-bill/1742"
+  },
+  {
+    "id": 5,
+    "x": 4,
+    "name": "State Public Option Act (S. 489, H.R. 4129)",
+    "sponsor": "Sen. Brian Schatz (D–Hawaii), 2019; Rep. Ben Ray Luján (D–N.M.), 2017",
+    "enhancement": "States would have a new option to create and offer Medicaid buy-in plans for people of all income levels through state or federal health insurance marketplaces. Plans would meet marketplace standards and enrollees may apply marketplace premium and cost- sharing subsidies to the buy-in plan. Extends premium subsidies for those enrolling with incomes above 400 percent of the federal poverty level (up to $48,560 for an individual). States would receive federal matching payments for costs not covered by premiums and cost-sharing payments. Also provides any state (including those not adopting the buy-in program) that has not yet expanded Medicaid with 100 percent federal-matching funding for the first three years of expansion.",
+    "eligibility": "People in states that elect this option who don’t have other coverage.",
+    "cost": "Premiums, as well as any deductibles and copayments or coinsurance that may be part of their plan.",
+    "management": "States or Medicaid managed care organizations set plan premiums. Providers are paid at least Medicare rates. Offering Medicaid buy-in plans in the marketplaces may insert price competition into less competitive markets, but it would depend on premium rates and whether Medicaid managed care organizations are already offering plans in the marketplaces.",
+    "transition": {
+      "time": "",
+      "text": ""
+    },
+    "link": "https://www.congress.gov/bill/116th-congress/senate-bill/489"
+  },
+  {
+    "id": 6,
+    "x": 5,
+    "name": "Medicare for America Act of 2018 (H.R. 7339)",
+    "sponsor": "Rep. Rosa DeLauro (D–Conn.), 2018",
+    "enhancement": "Creates a national health insurance program that replaces Medicare and Medicaid and most private insurance. All residents are eligible. Offers comprehensive benefits, including dental coverage. People may buy supplemental private insurance to pay for any uncovered services. People will pay subsidized community-rated premiums set by the U.S. Department of Health and Human Services Secretary, with no one paying more than 9.7 percent of income. Cost-sharing will vary by income including deductibles of no more than $350 for an individual, up to an out-of-pocket limit. Maintains Medicare Advantage program, Federal Employees Health Benefits Program, TRICARE, Veterans Administration benefits, and the Indian Health Service.",
+    "eligibility": "All U.S. residents. The Secretary is required to establish an autoenrollment mechanism for those eligible.",
+    "cost": "Premiums, as well as any deductibles and copayments or coinsurance.",
+    "management": "A unified Medicare Trust Fund absorbs funds associated with Medicare and Medicaid. The U.S. Department of Health and Human Services Secretary negotiates prescription drug prices; provider rates set at Medicare rates or somewhat higher for underserved areas as needed.",
+    "transition": {
+      "time": "Two-Year Transition",
+      "text": "The Secretary would offer a public plan option through the marketplaces in high-priority regions such as those with not more than one participating insurer or provider shortage. The Secretary would set premiums and establish a provider rate schedule. Providers participating in Medicare and Medicaid would be required to participate in the public plans."
+    },
+    "link": "https://www.congress.gov/bill/115th-congress/house-bill/7339"
+  },
+  {
+    "id": 7,
+    "x": 5,
+    "name": "Medicare for All Act of 2017 (S. 1804)",
+    "sponsor": "Sen. Bernie Sanders (I–Vt.), 2017",
+    "enhancement": "Creates a national health insurance program that would replace most current sources of coverage, including all private insurance. Retains the Veterans Administration health program and Indian Health Service. Offers comprehensive benefits, including vision and dental coverage, with limited cost-sharing. People could buy supplemental insurance to cover benefits not included in the program, but insurers cannot sell duplicative benefits. States may provide additional benefits at the expense of the state. Long-term care would be provided through Medicaid. Provides transitional financial support for five years for people who lose their jobs in insurance because of the new program.",
+    "eligibility": "All U.S. residents. The Secretary may include non-residents among those eligible. The Secretary shall provide a mechanism for enrollment of those eligible including autoenrollment at birth.",
+    "cost": "There would be no premiums and limited cost-sharing for prescription drugs. People would pay more in taxes but the amount would vary across the income distribution.",
+    "management": "Requires the Secretary of Health and Human Services to establish a national health budget. The new Universal Medicare Trust Fund absorbs funds associated with Medicare, Medicaid, the Federal Employees Health Benefits Program, and TRICARE. The U.S. Department of Health and Human Services Secretary negotiates prescription drug prices; health provider rates set at Medicare rates.",
+    "transition": {
+      "time": "Four-Year Transition",
+      "text": "Creates a Medicare buy-in option for increasingly younger age groups staring with those ages 50 to 64. It also creates a Medicare transition health plan offered through the marketplaces for which all residents are eligible and for which there are enhanced ACA subsidies. Health providers are paid at Medicare rates. Medicare and Medicaid providers must participate. The Secretary sets premiums and negotiates prescription drug prices."
+    },
+    "link": "https://www.congress.gov/bill/115th-congress/senate-bill/1804"
+  },
+  {
+    "id": 8,
+    "x": 5,
+    "name": "Medicare for All Act of 2019 (H.R. 1384)",
+    "sponsor": "Rep. Pramila Jayapal (D–Wash.), 2019",
+    "enhancement": "Creates a national health insurance program that would replace most current sources of coverage, including the current Medicare program, Medicaid, and all private insurance. Retains the Veterans Administration health program and Indian Health Service. Offers comprehensive benefits including vision, dental, and long-term-care services with no cost-sharing. People could buy supplemental insurance to cover benefits not included in the program, but insurers cannot sell duplicative benefits. Provides transitional financial support for five years for people who lose their jobs because of the new program.",
+    "eligibility": "All U.S. residents. The U.S. Department of Health and Human Services Secretary may include nonresidents among those eligible. The Secretary shall provide a mechanism for enrollment of those eligible including autoenrollment at birth.",
+    "cost": "There would be no premiums and no cost-sharing. People would pay more in taxes, but the amount would vary across the income distribution.",
+    "management": "Requires the Secretary to establish a national health budget and to allocate funds to new regional health administrators across the country. The regional administrators would in turn negotiate global budgets with hospitals, nursing homes, and other institutional providers. Institutional health providers’ budgets could not be used for nonpatient care including capital projects, profits, marketing, or payment incentives or bonuses. Health providers would have to apply for approval of capital projects, such as purchases of new or replacement technology, which would be funded separately. Doctors and other individual providers would be paid according to a national fee schedule established by the Secretary and would be reimbursed via a national electronic billing system. The Secretary negotiates prescription drug and medical device prices.",
+    "transition": {
+      "time": "Two-Year Transition",
+      "text": "People age 55 or older and age 18 or younger are eligible for the new Medicare for All program and everyone else could choose to enroll in a Medicare Transition buy-in plan available through the marketplaces. People currently eligible for premium and cost-sharing subsidies could apply them to the new plan."
+    },
+    "link": "https://www.congress.gov/bill/116th-congress/house-bill/1384"
+  },
+  {
+    "id": 9,
+    "x": 5,
+    "name": "Expanded and Improved Medicare for All Act (H.R. 676)",
+    "sponsor": "Rep. Keith Ellison (D–Minn.), 2017",
+    "enhancement": "Creates a national health insurance program that would replace most current sources of coverage, including the current Medicare program, Medicaid, and all private insurance. Retains the Veterans Administration health program for 10 years and Indian Health Service for five years. Offers comprehensive benefits including vision, dental, and long-term-care services with no cost-sharing. People could buy supplemental insurance to cover benefits not included in the program, but insurers cannot sell duplicative benefits. Provides transitional financial support for people who lose their jobs because of the new program.",
+    "eligibility": "All U.S. residents. People apply through health care providers and receive a Medicare for All program card in the mail.",
+    "cost": "There would be no premiums and no cost-sharing. Income taxes would increase for the top 5 percent of income earners, a progressive excise tax would be created for payroll and self-employment income, and a new tax would be set for unearned income and for stock and bond transactions.",
+    "management": "Establishes a national health budget that would be allocated to regional health administrators across the country. The regional administrators would in turn negotiate global budgets with hospitals, nursing homes, and other institutional providers. Nonprofit health maintenance organizations that deliver care in their own facilities and pay clinicians salaries would be considered institutional providers. Physicians and other individual clinicians that are not salaried by institutional providers would be paid according to a national fee schedule but would submit bills to the regional administrator.",
+    "transition": {
+      "time": "",
+      "text": ""
+    },
+    "link": "https://www.congress.gov/bill/116th-congress/house-bill/1384"
+  }
+]
