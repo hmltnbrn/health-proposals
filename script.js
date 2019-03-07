@@ -442,11 +442,11 @@
       let maxValue = Math.max(...sectionActive);
       if(sectionActive[d.x] > 1 && newHeight > h) {
         d3.select("#timeline-container")
-          .style("height", newHeight);
+          .style("height", newHeight + "px");
       }
       else if(newHeight < h && sectionActive[d.x] >= maxValue) {
         d3.select("#timeline-container")
-          .style("height", newHeight);
+          .style("height", newHeight + "px");
       }
     }
 
