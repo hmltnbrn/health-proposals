@@ -341,7 +341,6 @@
 
     function toggleCompareDivs(d) {
       document.querySelector(`.compare-${d.id}`).addEventListener("change", function(e) {
-        console.log("sds")
         let checked = d3.select(this).property("checked");
         let index = checking.indexOf(d.id);
         if (checked && index === -1 && activeFullTools < 2) {
@@ -358,7 +357,6 @@
           activeFullTools++;
         }
         else if(!checked) {
-          console.log("in hereheh")
           if(index !== -1) checking.splice(index, 1);
           d3.select(`.full-tooltip-${d.id}`).transition()
             .style("opacity", 0);
