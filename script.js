@@ -268,7 +268,10 @@
           d3.selectAll(`.tooltip-${d.id}`)
             .remove();
           if(index !== -1) clicked.splice(index, 1);
-          if(checkIndex !== -1) checking.splice(checkIndex, 1);
+          if(checkIndex !== -1) {
+            checking.splice(checkIndex, 1);
+            activeFullTools--;
+          }
           d3.select(`.full-tooltip-${d.id}`).transition()
             .style("opacity", 0);
           d3.selectAll(`.full-tooltip-${d.id}`)
@@ -338,6 +341,7 @@
 
     function toggleCompareDivs(d) {
       document.querySelector(`.compare-${d.id}`).addEventListener("change", function(e) {
+        console.log("sds")
         let checked = d3.select(this).property("checked");
         let index = checking.indexOf(d.id);
         if (checked && index === -1 && activeFullTools < 2) {
@@ -354,6 +358,7 @@
           activeFullTools++;
         }
         else if(!checked) {
+          console.log("in hereheh")
           if(index !== -1) checking.splice(index, 1);
           d3.select(`.full-tooltip-${d.id}`).transition()
             .style("opacity", 0);
