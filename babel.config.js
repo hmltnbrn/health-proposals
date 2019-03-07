@@ -9,4 +9,18 @@ const presets = [
   ],
 ];
 
-module.exports = { presets };
+const plugins = [
+  [
+    "transform-es2015-template-literals", {
+      "loose": true,
+      "spec": true
+    }
+  ],
+  [
+    "@babel/plugin-transform-spread", {
+      "loose": false
+    }
+  ]
+];
+
+module.exports = { presets, plugins };
