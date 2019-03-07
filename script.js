@@ -127,7 +127,7 @@
   function renderDesktop(proposals) {
 
     d3.select("#desktop-timeline").remove();
-    d3.selectAll(".tooltip").remove();
+    d3.selectAll(".viz-tooltip").remove();
     d3.selectAll(".full-tooltip").remove();
     d3.select(".select-proposal-text").show();
     d3.select(".compare-proposal-container").hide();
@@ -293,7 +293,7 @@
         let disableEnable = activeFullTools >= 2 ? "disabled" : "enabled";
         var div = d3.select("#timeline-container")
           .append("div")
-          .attr("class", `tooltip tooltip-${d.id} tooltip-x-${d.x}`)
+          .attr("class", `viz-tooltip tooltip-${d.id} tooltip-x-${d.x}`)
           .style("opacity", 0);
         div.html(`
           <h2 class="tooltip-name">${d.name}</h2>
@@ -318,7 +318,7 @@
         let disableEnable = activeFullTools >= 2 ? "disabled" : "enabled";
         var div = d3.select("#timeline-container")
           .append("div")
-          .attr("class", `tooltip tooltip-${d.id} tooltip-x-${d.x}`)
+          .attr("class", `viz-tooltip tooltip-${d.id} tooltip-x-${d.x}`)
           .style("opacity", 0);
         div.html(`
           <h2 class="tooltip-name">${d.name}</h2>
