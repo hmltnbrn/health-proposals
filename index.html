@@ -272,7 +272,7 @@
     }
 
     .timeline-container {
-      min-height: 160px;
+      min-height: 170px;
       position: relative;
       z-index: 100;
     }
@@ -283,7 +283,7 @@
 
     div.tooltip {
       font-family: InterfaceRegular;
-      /* position: absolute; */
+      position: absolute;
       padding: 5px;
       font-size: 12px;
       background: #eef8f9;
@@ -391,7 +391,7 @@
       padding: 0 20px 0 0;
       margin: 0 20px 50px 0;
       font-size: 13px;
-      width: calc(100%/3);
+      width: calc(100%/2);
       border-right: 1.5px dotted #6ac3c6;
     }
 
@@ -579,6 +579,53 @@
   <script src="https://d3js.org/d3.v3.min.js"></script>
   <script src="https://d3js.org/queue.v1.min.js"></script>
   <script type="text/javascript">
+    // Polyfills
+    if (!Array.prototype.fill) {
+      Object.defineProperty(Array.prototype, 'fill', {
+        value: function(value) {
+
+          // Steps 1-2.
+          if (this == null) {
+            throw new TypeError('this is null or not defined');
+          }
+
+          var O = Object(this);
+
+          // Steps 3-5.
+          var len = O.length >>> 0;
+
+          // Steps 6-7.
+          var start = arguments[1];
+          var relativeStart = start >> 0;
+
+          // Step 8.
+          var k = relativeStart < 0 ?
+            Math.max(len + relativeStart, 0) :
+            Math.min(relativeStart, len);
+
+          // Steps 9-10.
+          var end = arguments[2];
+          var relativeEnd = end === undefined ?
+            len : end >> 0;
+
+          // Step 11.
+          var final = relativeEnd < 0 ?
+            Math.max(len + relativeEnd, 0) :
+            Math.min(relativeEnd, len);
+
+          // Step 12.
+          while (k < final) {
+            O[k] = value;
+            k++;
+          }
+
+          // Step 13.
+          return O;
+        }
+      });
+    }
+  </script>
+  <script type="text/javascript">
 
     d3.selection.prototype.show = function() {
       this.style('display', 'block');
@@ -711,6 +758,8 @@
       d3.selectAll(".full-tooltip").remove();
       d3.select(".select-proposal-text").show();
       d3.select(".compare-proposal-container").hide();
+      d3.select("#timeline-container")
+        .style("height", 170);
 
       var chartDiv = document.getElementById("timeline-container");
       var w = chartDiv.clientWidth,
@@ -810,7 +859,8 @@
       var clicked = [];
       var checking = [];
       var moused = [];
-      var sectionActive = [];
+      var sectionActive = Array(proposalsLength).fill(0);
+      var activeFullTools = 0;
 
       let circles = svg.selectAll("circle")
         .data(proposals);
@@ -826,14 +876,14 @@
               .style("opacity", 0);
             d3.selectAll(`.tooltip-${d.id}`)
               .remove();
+            sectionActive[d.x] = sectionActive[d.x] -= 1;
+            maintainTimelineHeight(d);
           }
-          sectionActive[d.x] = sectionActive[d.x] -= 1;
         })
         .on("click", function(d) {
           var index = clicked.indexOf(d.id);
           var checkIndex = checking.indexOf(d.id);
           if(index === -1) {
-            sectionActive[d.x] = (sectionActive[d.x] || 0) + 1;
             clicked.push(d.id);
             if(!moused[d.id]) {
               mouseOver(d);
@@ -841,7 +891,6 @@
             }
           }
           else {
-            sectionActive[d.x] = sectionActive[d.x] -= 1;
             moused[d.id] = false;
             d3.select(`.tooltip-${d.id}`).transition()
               .style("opacity", 0);
@@ -855,7 +904,7 @@
               .remove();
             setTimeout(() => {
               redoOptions();
-              // updateTooltips(d);
+              updateTooltips(d);
             }, 0);
           }
         });
@@ -863,9 +912,11 @@
       circles.exit().remove();
 
       function mouseOver(d) {
-        sectionActive[d.x] = (sectionActive[d.x] || 0) + 1;
         if(clicked.indexOf(d.id) === -1) {
+          sectionActive[d.x] = (sectionActive[d.x] || 0) + 1;
+          maintainTimelineHeight(d);
           moused[d.id] = true;
+          let disableEnable = activeFullTools >= 2 ? "disabled" : "enabled";
           var div = d3.select("#timeline-container")
             .append("div")
             .attr("class", `tooltip tooltip-${d.id} tooltip-x-${d.x}`)
@@ -875,20 +926,22 @@
             <div class="compare-bottom">
               <div class="compare-check">
                 <label>
-                  <input type="checkbox" id="compare-input" class="compare-${d.id}"><span class="outer-span"><span>COMPARE</span> <i class="material-icons">radio_button_unchecked</i></span>
+                  <input type="checkbox" id="compare-input" class="compare-${d.id}" ${disableEnable}><span class="outer-span"><span>COMPARE</span> <i class="material-icons">radio_button_unchecked</i></span>
                 </label>
               </div>
             </div>
           `)
             .style("width", `calc(100%/${proposalsLength})`)
-            .style("margin-left", `calc(100%/${proposalsLength}*${d.x})`);
-            // .style("margin-top", (20 + (140 * sectionActive[d.x] - 140)) + "px");
+            .style("left", `calc(100%/${proposalsLength}*${d.x})`)
+            .style("top", (20 + (140 * sectionActive[d.x] - 140)) + "px");
           div.transition()
             .style("opacity", 1);
           toggleCompareDivs(d);
         }
         else if(clicked.indexOf(d.id) !== -1 && !moused[d.id]) {
+          maintainTimelineHeight(d);
           moused[d.id] = true;
+          let disableEnable = activeFullTools >= 2 ? "disabled" : "enabled";
           var div = d3.select("#timeline-container")
             .append("div")
             .attr("class", `tooltip tooltip-${d.id} tooltip-x-${d.x}`)
@@ -898,14 +951,14 @@
             <div class="compare-bottom">
               <div class="compare-check">
                 <label>
-                  <input type="checkbox" id="compare-input" class="compare-${d.id}"><span class="outer-span"><span>COMPARE</span> <i class="material-icons">radio_button_unchecked</i></span>
+                  <input type="checkbox" id="compare-input" class="compare-${d.id}" ${disableEnable}><span class="outer-span"><span>COMPARE</span> <i class="material-icons">radio_button_unchecked</i></span>
                 </label>
               </div>
             </div>
           `)
             .style("width", `calc(100%/${proposalsLength})`)
-            .style("margin-left", `calc(100%/${proposalsLength}*${d.x})`);
-            // .style("margin-top", (20 + (140 * sectionActive[d.x] - 140)) + "px");
+            .style("left", `calc(100%/${proposalsLength}*${d.x})`)
+            .style("top", (20 + (140 * sectionActive[d.x] - 140)) + "px");
           div.transition()
             .style("opacity", 1);
           toggleCompareDivs(d);
@@ -916,7 +969,7 @@
         document.querySelector(`.compare-${d.id}`).addEventListener("change", function(e) {
           let checked = d3.select(this).property("checked");
           let index = checking.indexOf(d.id);
-          if (checked && index === -1) {
+          if (checked && index === -1 && activeFullTools < 2) {
             d3.select(".select-proposal-text").hide();
             d3.select(".compare-proposal-container").showFlex();
             checking.push(d.id);
@@ -927,6 +980,7 @@
             divs.html(setFullTooltopHtml(d));
             divs.transition()
               .style("opacity", 1);
+            activeFullTools++;
           }
           else if(!checked) {
             if(index !== -1) checking.splice(index, 1);
@@ -934,6 +988,7 @@
               .style("opacity", 0);
             d3.selectAll(`.full-tooltip-${d.id}`)
               .remove();
+            activeFullTools--;
           }
           setTimeout(() => {
             redoOptions();
@@ -1003,8 +1058,23 @@
 
       function updateTooltips(d) {
         d3.selectAll(`.tooltip-x-${d.x}`).each(function(d, i) {
-          d3.select(this).style("top", (20 + (120 * (i + 1) - 120)) + "px");
+          d3.select(this).style("top", (20 + (140 * (i + 1) - 140)) + "px");
         });
+      }
+
+      function maintainTimelineHeight(d) {
+        let chartDiv = document.getElementById("timeline-container");
+        let h = chartDiv.clientHeight;
+        let newHeight = 170 * (sectionActive[d.x]);
+        let maxValue = Math.max(...sectionActive);
+        if(sectionActive[d.x] > 1 && newHeight > h) {
+          d3.select("#timeline-container")
+            .style("height", newHeight);
+        }
+        else if(newHeight < h && sectionActive[d.x] >= maxValue) {
+          d3.select("#timeline-container")
+            .style("height", newHeight);
+        }
       }
 
     }
