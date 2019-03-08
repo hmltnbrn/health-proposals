@@ -62,8 +62,8 @@
   {
     "id": 4,
     "x": 3,
-    "name": "Medicare at 55 Act (S. 1742)",
-    "sponsor": "Sen. Debbie Stabenow (D–Mich.), 2017",
+    "name": "Medicare at 50 Act (S. 470)",
+    "sponsor": "Sen. Debbie Stabenow (D–Mich.), 2019",
     "enhancement": "People ages 50 to 64 may buy a plan with Medicare benefits for an annual premium. Those eligible for marketplace premium and cost-sharing subsidies could apply them to the plan. The plan would be offered at the silver level through the marketplaces.",
     "eligibility": "People ages 50 to 64 not eligible for Medicare.",
     "cost": "Premiums, as well as any deductibles and copayments or coinsurance that are part of the plan.",
@@ -72,13 +72,13 @@
       "time": "",
       "text": ""
     },
-    "link": "https://www.congress.gov/bill/115th-congress/senate-bill/1742"
+    "link": "https://www.congress.gov/bill/116th-congress/senate-bill/470"
   },
   {
     "id": 5,
     "x": 4,
-    "name": "State Public Option Act (S. 489, H.R. 4129)",
-    "sponsor": "Sen. Brian Schatz (D–Hawaii), 2019; Rep. Ben Ray Luján (D–N.M.), 2017",
+    "name": "State Public Option Act (S. 489, H.R. 1277)",
+    "sponsor": "Sen. Brian Schatz (D–Hawaii), 2019; Rep. Ben Ray Luján (D–N.M.), 2019",
     "enhancement": "States would have a new option to create and offer Medicaid buy-in plans for people of all income levels through state or federal health insurance marketplaces. Plans would meet marketplace standards and enrollees may apply marketplace premium and cost- sharing subsidies to the buy-in plan. Extends premium subsidies for those enrolling with incomes above 400 percent of the federal poverty level (up to $48,560 for an individual). States would receive federal matching payments for costs not covered by premiums and cost-sharing payments. Also provides any state (including those not adopting the buy-in program) that has not yet expanded Medicaid with 100 percent federal-matching funding for the first three years of expansion.",
     "eligibility": "People in states that elect this option who don’t have other coverage.",
     "cost": "Premiums, as well as any deductibles and copayments or coinsurance that may be part of their plan.",
