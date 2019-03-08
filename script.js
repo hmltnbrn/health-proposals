@@ -6,7 +6,7 @@
   }
 
   d3.selection.prototype.showFlex = function() {
-    this.style('display', 'flex');
+    this.style('display', 'flex').style('display', '-webkit-flex');
     return this;
   }
 

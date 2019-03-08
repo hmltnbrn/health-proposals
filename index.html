@@ -56,6 +56,7 @@
       margin: 0 auto;
       display: flex;
       flex-direction: column;
+      -webkit-flex-direction: column;
     }
 
     h1 {
@@ -71,7 +72,9 @@
 
     .system-radios {
       display: flex;
+      display: -webkit-flex;
       justify-content: center;
+      -webkit-justify-content: center;
       margin: 25px;
     }
 
@@ -100,6 +103,7 @@
       cursor: pointer;
       z-index: 90;
       display: flex;
+      display: -webkit-flex;
       text-align: center;
     }
 
@@ -140,11 +144,14 @@
 
     .plan-container, .mobile-plan-container {
       display: flex;
+      display: -webkit-flex;
       flex-direction: column;
+      -webkit-flex-direction: column;
     }
 
     .big-block-container {
       display: flex;
+      display: -webkit-flex;
       height: 135px;
       width: 100%;
       background: linear-gradient(to right, #2d8896, #033865);
@@ -187,11 +194,13 @@
     .big-block.all {
       width: 100%;
       display: flex;
+      display: -webkit-flex;
       justify-content: space-between;
     }
 
     .small-block-container {
       display: flex;
+      display: -webkit-flex;
       height: 100px;
       width: 100%;
       background: linear-gradient(to right, #6ac3c6, #377098);
@@ -202,7 +211,9 @@
       border: 1px solid white;
       padding: 10px;
       display: flex;
+      display: -webkit-flex;
       align-items: flex-end;
+      -webkit-align-items: flex-end;
       cursor: pointer;
     }
 
@@ -229,17 +240,21 @@
       width: 33.3%;
       display: flex;
       flex-direction: column;
+      -webkit-flex-direction: column;
       align-items: center;
+      -webkit-align-items: center;
     }
 
     .plan:first-child {
       margin-right: 0.1%;
       align-items: flex-start;
+      -webkit-align-items: flex-start;
     }
 
     .plan:last-child {
       margin-left: 0.1%;
       align-items: flex-end;
+      -webkit-align-items: flex-end;
     }
 
     .plan h2 {
@@ -283,6 +298,7 @@
 
     #desktop-timeline {
       transform: translate(0, -20px); /* Needed for Edge */
+      -webkit-transform: translate(0, -20px);
     }
 
     .data-point {
@@ -299,8 +315,11 @@
       border-radius: 0px;
       min-height: 140px;
       display: flex;
+      display: -webkit-flex;
       flex-direction: column;
+      -webkit-flex-direction: column;
       justify-content: space-between;
+      -webkit-justify-content: space-between;
     }
 
     .viz-tooltip:first-child {
@@ -313,12 +332,16 @@
 
     .viz-tooltip .tooltip-top {
       display: flex;
+      display: -webkit-flex;
       flex-direction: column;
+      -webkit-flex-direction: column;
     }
 
     .viz-tooltip .tooltip-top .tooltip-close-area {
       display: flex;
+      display: -webkit-flex;
       justify-content: flex-end;
+      -webkit-justify-content: flex-end;
     }
 
     .viz-tooltip .tooltip-top i {
@@ -363,7 +386,9 @@
 
     .compare-bottom {
       display: flex;
+      display: -webkit-flex;
       justify-content: flex-end;
+      -webkit-justify-content: flex-end;
     }
 
     .compare-check label {
@@ -395,7 +420,9 @@
       border: 1px solid #5fc4c4;
       font-size: 10px;
       display: flex;
+      display: -webkit-flex;
       align-items: center;
+      -webkit-align-items: center;
     }
 
     .compare-check input:checked + span.outer-span {
@@ -411,7 +438,9 @@
     div.full-tooltip {
       font-family: InterfaceRegular;
       display: flex;
+      display: -webkit-flex;
       flex-direction: column;
+      -webkit-flex-direction: column;
       padding: 0 20px 0 0;
       margin: 0 20px 50px 0;
       font-size: 13px;
@@ -421,8 +450,11 @@
 
     .full-tooltip .option-head {
       display: flex;
+      display: -webkit-flex;
       align-items: center;
+      -webkit-align-items: center;
       justify-content: space-between;
+      -webkit-justify-content: space-between;
       color: #f4822f;
       margin: 0 0 10px 0;
     }
