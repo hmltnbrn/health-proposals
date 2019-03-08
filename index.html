@@ -203,6 +203,7 @@
       padding: 10px;
       display: flex;
       align-items: flex-end;
+      cursor: pointer;
     }
 
     .small-block:first-child {
@@ -296,7 +297,7 @@
       background: #eef8f9;
       border: 1px solid white;
       border-radius: 0px;
-      min-height: 130px;
+      min-height: 140px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -308,6 +309,22 @@
 
     .viz-tooltip:last-child {
       border-right: 0;
+    }
+
+    .viz-tooltip .tooltip-top {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .viz-tooltip .tooltip-top .tooltip-close-area {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .viz-tooltip .tooltip-top i {
+      text-align: right;
+      font-size: 16px;
+      cursor: pointer;
     }
 
     .tooltip-name {
@@ -351,7 +368,6 @@
 
     .compare-check label {
       float: left;
-      cursor: pointer;
     }
 
     .compare-check label span.outer-span {
@@ -359,6 +375,7 @@
       padding: 3px;
       display: block;
       border-radius: 4px;
+      cursor: pointer;
     }
 
     .compare-check label span.outer-span > i {
@@ -398,7 +415,7 @@
       padding: 0 20px 0 0;
       margin: 0 20px 50px 0;
       font-size: 13px;
-      width: calc(100%/2);
+      width: calc(100%/3);
       border-right: 1.5px dotted #6ac3c6;
     }
 
@@ -477,13 +494,12 @@
         </div>
       </div>
       <div class="descriptive-text federal-text">
-        <p>The health care debate in the 2020 presidential campaign so far has largely focused on Democratic candidates' support for "Medicare for all," or a national health insurance program. In fact, there have been a number of plans proposed to help the United States join other wealthy nations that have achieved universal coverage for their residents.</p>
-        <p>Below, you can see where lawmakers' bills fall on the Medicare-for-all continuum – ranging from those relying on a mix of private and publicly funded health insurance to those featuring only public coverage. You can also compare the benefits each coverage plan would provide, how people would pay for coverage and care, and how the bills would contain overall health care costs. Just click or tap the dots along the continuum.</p>
-        <p>Select "International Health Systems" for a continuum of other countries' health systems.</p>
+        <p>The health care debate in the 2020 presidential campaign so far has largely focused on Democratic candidates' support for "Medicare for all," or a national health insurance program.</p>
+        <p>Click or tap the dots along the continuum to view the lawmakers' bills and where they fall on the Medicare-for-all continuum – ranging from those relying on a mix of private and publicly funded health insurance to those featuring only public coverage. You can also compare the benefits each coverage plan would provide, how people would pay for coverage and care, and how the bills would contain overall health care costs.</p>
       </div>
       <div class="descriptive-text international-text">
-        <p>The "Medicare for all" debate has sparked interest in how other wealthy nations provide affordable, universal health insurance coverage. While all eight of the health systems featured below include a mix of public and private insurance, we show where they differ in what public financing covers and doesn't cover and how much people pay out of pocket for their health care. Click or tap the dots to compare these countries on how they cover their residents, how people pay for coverage and care, and how health care costs are contained.</p>
-        <p>Select "Federal Health Proposals" to see where federal bills proposed in the U.S. Congress fall on the "Medicare for all" continuum.</p>
+        <p>The "Medicare for all" debate has sparked interest in how other wealthy nations provide affordable, universal health insurance coverage.</p>
+        <p>Click or tap the dots along the continuum to learn more about the eight health systems featured below. While each includes a mix of public and private insurance, we show where they differ in what public financing covers and doesn't cover and how much people pay out of pocket for their health care, as well as how health care costs are contained.</p>
       </div>
     </div>
     <div class="desktop-container">
@@ -501,22 +517,22 @@
             </div>
           </div>
           <div class="small-block-container">
-            <div class="small-block one">
+            <div class="small-block one clickable-0">
               <h3>More Private Health Plan and Provider Regulation</h3>
             </div>
-            <div class="small-block two">
+            <div class="small-block two clickable-1">
               <h3>Medicare-Like Plan in the Marketplaces</h3>
             </div>
-            <div class="small-block three">
+            <div class="small-block three clickable-2">
               <h3>Medicare-Like Plan for People with Employer Coverage</h3>
             </div>
-            <div class="small-block four">
+            <div class="small-block four clickable-3">
               <h3>Medicare Buy-In for Americans Over 50</h3>
             </div>
-            <div class="small-block five">
+            <div class="small-block five clickable-4">
               <h3>Medicaid Buy-In for All</h3>
             </div>
-            <div class="small-block six">
+            <div class="small-block six clickable-5">
               <h3>National Health Insurance Program</h3>
             </div>
           </div>
@@ -531,28 +547,28 @@
             </div>
           </div>
           <div class="small-block-container">
-            <div class="small-block one">
+            <div class="small-block one clickable-0">
               <h3>Switzerland</h3>
             </div>
-            <div class="small-block two">
+            <div class="small-block two clickable-1">
               <h3>Australia</h3>
             </div>
-            <div class="small-block three">
+            <div class="small-block three clickable-2">
               <h3>Netherlands</h3>
             </div>
-            <div class="small-block four">
+            <div class="small-block four clickable-3">
               <h3>Canada</h3>
             </div>
-            <div class="small-block five">
+            <div class="small-block five clickable-4">
               <h3>Norway</h3>
             </div>
-            <div class="small-block six">
+            <div class="small-block six clickable-5">
               <h3>Germany</h3>
             </div>
-            <div class="small-block seven">
+            <div class="small-block seven clickable-6">
               <h3>Sweden</h3>
             </div>
-            <div class="small-block eight">
+            <div class="small-block eight clickable-7">
               <h3>United Kingdom</h3>
             </div>
           </div>
@@ -562,7 +578,7 @@
       </div>
       <div class="select-proposal-container">
         <div class="compare-proposal-container"></div>
-        <p class="select-proposal-text">Select a <span>proposal</span> on the continuum to learn more and compare.</p>
+        <p class="select-proposal-text">Click or tap a dot on the continuum to learn more and compare up to three items.</p>
       </div>
     </div>
     <div class="mobile-container">

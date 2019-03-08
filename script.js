@@ -39,7 +39,6 @@
     if(system === "federal") {
       d3.select(".federal-container").show();
       d3.select(".international-container").hide();
-      d3.select(".select-proposal-text span").text("proposal");
       d3.select("h1.federal-header").show();
       d3.select("h1.international-header").hide();
       d3.select(".descriptive-text.federal-text").show();
@@ -48,7 +47,6 @@
     else if(system === "international") {
       d3.select(".international-container").show();
       d3.select(".federal-container").hide();
-      d3.select(".select-proposal-text span").text("country");
       d3.select("h1.international-header").show();
       d3.select("h1.federal-header").hide();
       d3.select(".descriptive-text.international-text").show();
@@ -66,11 +64,21 @@
         e.target.parentNode.querySelector(".material-icons").innerText = "radio_button_unchecked";
       }
     }
-    else if(e.target && e.target.className == 'material-icons x-full-tooltip') {
+    else if(e.target && (e.target.className == 'material-icons x-full-tooltip' || e.target.className == 'material-icons x-viz-tooltip')) {
       d3.selectAll(`.compare-${e.target.id.split("-")[1]}`).uncheck();
-      let event = new Event('change');
-      document.querySelector(`.compare-${e.target.id.split("-")[1]}`).dispatchEvent(event);
+      document.querySelector(`.data-point-id-${e.target.id.split("-")[1]}`).dispatchEvent(new CustomEvent('click', {"detail": "close"}));
     }
+  });
+
+  d3.selectAll(".small-block").each(function(d, i) {
+    d3.select(this).on("click", function() {
+      let coord = d3.select(this).attr("class").split(" ")[2].split("-")[1];
+      let points = document.querySelectorAll(`.data-point-${coord}`);
+      points.forEach((p) => {
+        let event = new CustomEvent('click', {"detail": "all"});
+        p.dispatchEvent(event);
+      });
+    });
   });
 
   queue()
@@ -94,13 +102,13 @@
     }
     if(screen.width <= 768 || window.innerWidth <= 768) {
       mobile = true;
-      d3.select(".mobile-container").show();
-      d3.select(".desktop-container").hide();
+      // d3.select(".mobile-container").show();
+      // d3.select(".desktop-container").hide();
     }
     else {
       mobile = false;
-      d3.select(".desktop-container").show();
-      d3.select(".mobile-container").hide();
+      // d3.select(".desktop-container").show();
+      // d3.select(".mobile-container").hide();
     }
     renderAll();
   }
@@ -131,6 +139,8 @@
     d3.selectAll(".full-tooltip").remove();
     d3.select(".select-proposal-text").show();
     d3.select(".compare-proposal-container").hide();
+
+    d3.select("#timeline-container").style("height", "170px");
 
     var chartDiv = document.getElementById("timeline-container");
     var w = chartDiv.clientWidth,
@@ -224,7 +234,9 @@
         previousColorValue = d.x;
         return color;
       },
-      class: "data-point"
+      class: function(d) {
+        return `data-point data-point-${d.x} data-point-id-${d.id}`;
+      }
     };
 
     var clicked = [];
@@ -232,6 +244,7 @@
     var moused = [];
     var sectionActive = Array(proposalsLength).fill(0);
     var activeFullTools = 0;
+    var reachedLimit = false;
 
     let circles = svg.selectAll("circle")
       .data(proposals);
@@ -241,7 +254,7 @@
       .attr(circleAttrs)
       .on("mouseover", mouseOver)
       .on("mouseout", function(d) {
-        if(clicked.indexOf(d.id) === -1) {
+        if(!clicked[d.id]) {
           moused[d.id] = false;
           d3.select(`.tooltip-${d.id}`).transition()
             .style("opacity", 0);
@@ -252,55 +265,90 @@
         }
       })
       .on("click", function(d) {
-        var index = clicked.indexOf(d.id);
-        var checkIndex = checking.indexOf(d.id);
-        if(index === -1) {
-          clicked.push(d.id);
-          if(!moused[d.id]) {
-            mouseOver(d);
-            moused[d.id] = true;
+        if(d3.event.detail === "all") {
+          var innerCheckIndex = checking.indexOf(d.id);
+          if(clicked[d.id]) {
+            d3.selectAll(`.tooltip-${d.id}`)
+              .remove();
+            d3.selectAll(`.full-tooltip-${d.id}`)
+              .remove();
+            clicked[d.id] = false;
+            moused[d.id] = false;
+            if(innerCheckIndex !== -1) {
+              checking.splice(innerCheckIndex, 1);
+              activeFullTools--;
+            }
+            sectionActive[d.x] = sectionActive[d.x] -= 1;
           }
+          clicked[d.id] = true;
+          mouseOver(d);
         }
         else {
-          moused[d.id] = false;
-          d3.select(`.tooltip-${d.id}`).transition()
-            .style("opacity", 0);
-          d3.selectAll(`.tooltip-${d.id}`)
-            .remove();
-          if(index !== -1) clicked.splice(index, 1);
-          if(checkIndex !== -1) {
-            checking.splice(checkIndex, 1);
-            activeFullTools--;
+          var checkIndex = checking.indexOf(d.id);
+          if(!clicked[d.id]) {
+            clicked[d.id] = true;
+            if(!moused[d.id]) {
+              mouseOver(d);
+              moused[d.id] = true;
+            }
           }
-          d3.select(`.full-tooltip-${d.id}`).transition()
-            .style("opacity", 0);
-          d3.selectAll(`.full-tooltip-${d.id}`)
-            .remove();
-          setTimeout(() => {
-            redoOptions();
-            updateTooltips(d);
-          }, 0);
+          else {
+            moused[d.id] = false;
+            d3.selectAll(`.tooltip-${d.id}`).transition()
+              .style("opacity", 0);
+            d3.selectAll(`.tooltip-${d.id}`)
+              .remove();
+            clicked[d.id] = false;
+            if(checkIndex !== -1) {
+              checking.splice(checkIndex, 1);
+              activeFullTools--;
+            }
+            d3.selectAll(`.full-tooltip-${d.id}`).transition()
+              .style("opacity", 0);
+            d3.selectAll(`.full-tooltip-${d.id}`)
+              .remove();
+            setTimeout(() => {
+              redoOptions();
+              updateTooltips(d);
+            }, 0);
+          }
+        }
+        if(d3.event.detail === "close") {
+          sectionActive[d.x] = sectionActive[d.x] -= 1;
+          maintainTimelineHeight(d);
+        }
+        if(activeFullTools === 3) {
+          disableInputs(d);
+        }
+        if(activeFullTools < 3 && reachedLimit) {
+          enableInputs(d);
         }
       });
 
     circles.exit().remove();
 
     function mouseOver(d) {
-      if(clicked.indexOf(d.id) === -1) {
+      if(!clicked[d.id]) {
         sectionActive[d.x] = (sectionActive[d.x] || 0) + 1;
         maintainTimelineHeight(d);
         moused[d.id] = true;
-        let disableEnable = activeFullTools >= 2 ? "disabled" : "enabled";
+        let disableEnable = activeFullTools >= 3 ? 'disabled="true"' : "";
+        let title = activeFullTools >= 3 ? 'title="Only 3 comparisons allowed at once"' : "";
         var div = d3.select("#timeline-container")
           .append("div")
           .attr("class", `viz-tooltip tooltip-${d.id} tooltip-x-${d.x}`)
           .style("opacity", 0);
         div.html(`
-          <h2 class="tooltip-name">${d.name}</h2>
+          <div class="tooltip-top">
+            <div class="tooltip-close-area">
+              <i id="close-${d.id}" class="material-icons x-viz-tooltip">close</i>
+            </div>
+            <h2 class="tooltip-name">${d.name}</h2>
+          </div>
           <div class="compare-bottom">
             <div class="compare-check">
               <label>
-                <input type="checkbox" id="compare-input" class="compare-${d.id}" ${disableEnable}><span class="outer-span"><span>COMPARE</span> <i class="material-icons">radio_button_unchecked</i></span>
+                <input type="checkbox" id="compare-input" class="compare-${d.id}" ${disableEnable}><span class="outer-span" ${title}><span>COMPARE</span> <i class="material-icons">radio_button_unchecked</i></span>
               </label>
             </div>
           </div>
@@ -308,24 +356,34 @@
           .style("width", `calc(100%/${proposalsLength})`)
           .style("left", `calc(100%/${proposalsLength}*${d.x})`)
           .style("top", (20 + (140 * sectionActive[d.x] - 140)) + "px");
+        if(activeFullTools >= 3) {
+          div.style("cursor", "not-allowed");
+        }
         div.transition()
           .style("opacity", 1);
         toggleCompareDivs(d);
       }
-      else if(clicked.indexOf(d.id) !== -1 && !moused[d.id]) {
+      else if(clicked[d.id] && !moused[d.id]) {
+        sectionActive[d.x] = (sectionActive[d.x] || 0) + 1;
         maintainTimelineHeight(d);
         moused[d.id] = true;
-        let disableEnable = activeFullTools >= 2 ? "disabled" : "enabled";
+        let disableEnable = activeFullTools >= 3 ? 'disabled="true"' : "";
+        let title = activeFullTools >= 3 ? 'title="Only 3 comparisons allowed at once"' : "";
         var div = d3.select("#timeline-container")
           .append("div")
           .attr("class", `viz-tooltip tooltip-${d.id} tooltip-x-${d.x}`)
           .style("opacity", 0);
         div.html(`
-          <h2 class="tooltip-name">${d.name}</h2>
+          <div class="tooltip-top">
+            <div class="tooltip-close-area">
+              <i id="close-${d.id}" class="material-icons x-viz-tooltip">close</i>
+            </div>
+            <h2 class="tooltip-name">${d.name}</h2>
+          </div>
           <div class="compare-bottom">
             <div class="compare-check">
               <label>
-                <input type="checkbox" id="compare-input" class="compare-${d.id}" ${disableEnable}><span class="outer-span"><span>COMPARE</span> <i class="material-icons">radio_button_unchecked</i></span>
+                <input type="checkbox" id="compare-input" class="compare-${d.id}" ${disableEnable}><span class="outer-span" ${title}><span>COMPARE</span> <i class="material-icons">radio_button_unchecked</i></span>
               </label>
             </div>
           </div>
@@ -333,17 +391,21 @@
           .style("width", `calc(100%/${proposalsLength})`)
           .style("left", `calc(100%/${proposalsLength}*${d.x})`)
           .style("top", (20 + (140 * sectionActive[d.x] - 140)) + "px");
+        if(activeFullTools >= 3) {
+          div.style("cursor", "not-allowed");
+        }
         div.transition()
           .style("opacity", 1);
         toggleCompareDivs(d);
       }
+      updateTooltips(d);
     }
 
     function toggleCompareDivs(d) {
       document.querySelector(`.compare-${d.id}`).addEventListener("change", function(e) {
         let checked = d3.select(this).property("checked");
         let index = checking.indexOf(d.id);
-        if (checked && index === -1 && activeFullTools < 2) {
+        if (checked && index === -1 && activeFullTools < 3) {
           d3.select(".select-proposal-text").hide();
           d3.select(".compare-proposal-container").showFlex();
           checking.push(d.id);
@@ -367,6 +429,12 @@
         setTimeout(() => {
           redoOptions();
         }, 0);
+        if(activeFullTools === 3) {
+          disableInputs(d);
+        }
+        if(activeFullTools < 3 && reachedLimit) {
+          enableInputs(d);
+        }
       });
     }
 
@@ -438,8 +506,8 @@
 
     function maintainTimelineHeight(d) {
       let h = chartDiv.clientHeight;
-      let newHeight = 170 * (sectionActive[d.x]);
       let maxValue = Math.max(...sectionActive);
+      let newHeight = 170 * (sectionActive[d.x]);
       if(sectionActive[d.x] > 1 && newHeight > h) {
         d3.select("#timeline-container")
           .style("height", newHeight + "px");
@@ -448,6 +516,29 @@
         d3.select("#timeline-container")
           .style("height", newHeight + "px");
       }
+    }
+
+    function disableInputs(d) {
+      d3.selectAll(".viz-tooltip").each(function(d, i) {
+        var id = d3.select(this).attr("class").split(" ")[1].split("-")[1];
+        if(checking.indexOf(parseInt(id)) === -1) {
+          d3.select(this).select("#compare-input").attr("disabled", true);
+          d3.select(this).select(".outer-span")
+            .attr("title", "Only 3 comparisons allowed at once")
+            .style("cursor", "not-allowed");
+        }
+      });
+      reachedLimit = true;
+    }
+
+    function enableInputs(d) {
+      d3.selectAll(".viz-tooltip").each(function(d, i) {
+        d3.select(this).select("#compare-input").attr("disabled", null).attr("title", null);
+        d3.select(this).select(".outer-span")
+          .attr("title", null)
+          .style("cursor", null);
+      });
+      reachedLimit = false;
     }
 
   }
