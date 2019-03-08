@@ -333,7 +333,7 @@
         maintainTimelineHeight(d);
         moused[d.id] = true;
         let disableEnable = activeFullTools >= 3 ? 'disabled="true"' : "";
-        let title = activeFullTools >= 3 ? 'title="Only 3 comparisons allowed at once"' : "";
+        let title = activeFullTools >= 3 ? 'title="No more than three items can be compared at once"' : "";
         var div = d3.select("#timeline-container")
           .append("div")
           .attr("class", `viz-tooltip tooltip-${d.id} tooltip-x-${d.x}`)
@@ -357,7 +357,7 @@
           .style("left", `calc(100%/${proposalsLength}*${d.x})`)
           .style("top", (20 + (140 * sectionActive[d.x] - 140)) + "px");
         if(activeFullTools >= 3) {
-          div.style("cursor", "not-allowed");
+          div.select(".outer-span").style("cursor", "not-allowed");
         }
         div.transition()
           .style("opacity", 1);
@@ -368,7 +368,7 @@
         maintainTimelineHeight(d);
         moused[d.id] = true;
         let disableEnable = activeFullTools >= 3 ? 'disabled="true"' : "";
-        let title = activeFullTools >= 3 ? 'title="Only 3 comparisons allowed at once"' : "";
+        let title = activeFullTools >= 3 ? 'title="No more than three items can be compared at once"' : "";
         var div = d3.select("#timeline-container")
           .append("div")
           .attr("class", `viz-tooltip tooltip-${d.id} tooltip-x-${d.x}`)
@@ -392,7 +392,7 @@
           .style("left", `calc(100%/${proposalsLength}*${d.x})`)
           .style("top", (20 + (140 * sectionActive[d.x] - 140)) + "px");
         if(activeFullTools >= 3) {
-          div.style("cursor", "not-allowed");
+          div.select(".outer-span").style("cursor", "not-allowed");
         }
         div.transition()
           .style("opacity", 1);
@@ -524,7 +524,7 @@
         if(checking.indexOf(parseInt(id)) === -1) {
           d3.select(this).select("#compare-input").attr("disabled", true);
           d3.select(this).select(".outer-span")
-            .attr("title", "Only 3 comparisons allowed at once")
+            .attr("title", "No more than three items can be compared at once")
             .style("cursor", "not-allowed");
         }
       });
