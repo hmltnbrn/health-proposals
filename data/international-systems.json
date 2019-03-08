@@ -27,30 +27,6 @@
   {
     "id": 1,
     "x": 1,
-    "name": "Australia",
-    "coverage": {
-      "text": "Australia has a regionally administered, universal public health insurance program, Australian Medicare, with automatic enrollment for citizens. Permanent residents can enroll in basic coverage.",
-      "bullets": [
-        "The Medicare Benefits Scheme determines comprehensive benefits, such as hospital and physician services including mental health and maternity care, prescription drugs, and children’s dental care. Long-term care is funded separately through various state and federal government-funded programs. Dental care for adults is also not covered.",
-        "Private insurance plays a major role; approximately half of Australians buy supplementary coverage for private hospitals, dental services, vision, and other services. The federal government pays a rebate toward private insurance premiums and charges higher-income households a tax penalty for not taking up private insurance."
-      ]
-    },
-    "cost": [
-      "Taxes (general and income) and private insurance (see above)."
-    ],
-    "management": [
-      "The federal government sets an annual budget. Hospital payments are tied to the “efficient price of delivering services” determined by the Independent Hospital Pricing Authority. Drugs covered under Medicare must have been demonstrated to be cost-effective by the independent Pharmaceutical Benefits Advisory Committee. The Pharmaceutical Benefit Scheme negotiates drug prices with suppliers. The federal government regulates private insurance premiums. There is primary care (general practitioner) gatekeeping for specialist services."
-    ],
-    "links": [
-      {
-        "text": "Read more about the Australian health care system",
-        "link": "https://international.commonwealthfund.org/countries/australia/"
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "x": 2,
     "name": "Netherlands",
     "coverage": {
       "text": "Residents are required to purchase statutory health insurance from private nonprofit insurers, offered on a national exchange.",
@@ -74,8 +50,60 @@
     ]
   },
   {
+    "id": 2,
+    "x": 2,
+    "name": "Germany",
+    "coverage": {
+      "text": "Health insurance is mandatory, and most residents are enrolled in one of the 110 nonprofit, nongovernmental statutory health insurance plans, known as sickness funds.",
+      "bullets": [
+        "Statutory health insurance coverage is comprehensive and includes inpatient and outpatient care, mental health, prescription drugs, basic and preventive dental care, vision care, and rehabilitation. Germans and their employers also contribute to a separate national long-term-care insurance program.",
+        "Germans earning more than USD 76,000 a year and self-employed individuals can opt out of statutory health insurance and purchase private insurance instead; about 11 percent do. In addition, 10.6 percent of people in statutory health insurance purchase complementary private insurance to help cover services not covered or only partially covered by statutory health insurance."
+      ]
+    },
+    "cost": [
+      "Wage contributions shared by employees and employers; some sickness funds also charge enrollees an income-dependent fee. Cost-sharing is through government-determined copayments that apply to all sickness funds and deductibles that are determined by individual sickness funds. There is no cost-sharing for preventive services or physician visits (primary care or specialists), and physicians cannot bill above the national fee schedule. Copayments apply to hospital care (USD 12.84 per day, up to USD 359 per year), and prescription drugs (USD 6.42–12.84 per outpatient prescription). Children are exempt from cost-sharing, and there’s an annual out-of-pocket maximum: 2 percent of household income for healthy adults or 1 percent for the chronically ill."
+    ],
+    "management": [
+      "Germany has placed various cost controls on prescription drugs. Medications with an unfavorable benefit-risk assessment are not covered, and covered drugs are grouped by therapeutic class and assigned a maximum reimbursement amount, or reference price. For new drugs with added benefit, the Federal Association of Sickness Funds negotiates a reimbursement price on the manufacturer’s price. In addition, sickness funds collectively negotiate uniform fee schedules with provider associations at a regional level and individual sickness funds can negotiate selective integrative care contracts with providers and rebates with pharmaceutical companies."
+    ],
+    "links": [
+      {
+        "text": "Learn more about reference pricing for prescription drugs in Germany",
+        "link": "https://www.commonwealthfund.org/publications/issue-briefs/2019/jan/reference-pricing-germany-implications"
+      },
+      {
+        "text": "Read more about the German health care system",
+        "link": "https://international.commonwealthfund.org/countries/germany/"
+      }
+    ]
+  },
+  {
     "id": 3,
     "x": 3,
+    "name": "Australia",
+    "coverage": {
+      "text": "Australia has a regionally administered, universal public health insurance program, Australian Medicare, with automatic enrollment for citizens. Permanent residents can enroll in basic coverage.",
+      "bullets": [
+        "The Medicare Benefits Scheme determines comprehensive benefits, such as hospital and physician services including mental health and maternity care, prescription drugs, and children’s dental care. Long-term care is funded separately through various state and federal government-funded programs. Dental care for adults is also not covered.",
+        "Private insurance plays a major role; approximately half of Australians buy supplementary coverage for private hospitals, dental services, vision, and other services. The federal government pays a rebate toward private insurance premiums and charges higher-income households a tax penalty for not taking up private insurance."
+      ]
+    },
+    "cost": [
+      "Taxes (general and income) and private insurance (see above)."
+    ],
+    "management": [
+      "The federal government sets an annual budget. Hospital payments are tied to the “efficient price of delivering services” determined by the Independent Hospital Pricing Authority. Drugs covered under Medicare must have been demonstrated to be cost-effective by the independent Pharmaceutical Benefits Advisory Committee. The Pharmaceutical Benefit Scheme negotiates drug prices with suppliers. The federal government regulates private insurance premiums. There is primary care (general practitioner) gatekeeping for specialist services."
+    ],
+    "links": [
+      {
+        "text": "Read more about the Australian health care system",
+        "link": "https://international.commonwealthfund.org/countries/australia/"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "x": 4,
     "name": "Canada",
     "coverage": {
       "text": "Canada has a decentralized, universal health system called Canadian Medicare. Each of Canada’s 13 provinces and territories has its own health insurance program; residents are automatically enrolled in their local plan.",
@@ -100,8 +128,8 @@
     ]
   },
   {
-    "id": 4,
-    "x": 4,
+    "id": 5,
+    "x": 5,
     "name": "Norway",
     "coverage": {
       "text": "Enrollment in Norway’s single-payer public health system is automatic for residents.",
@@ -120,34 +148,6 @@
       {
         "text": "Read more about the Norwegian health care system",
         "link": "https://international.commonwealthfund.org/countries/norway/"
-      }
-    ]
-  },
-  {
-    "id": 5,
-    "x": 5,
-    "name": "Germany",
-    "coverage": {
-      "text": "Health insurance is mandatory, and most residents are enrolled in one of the 110 nonprofit, nongovernmental statutory health insurance plans, known as sickness funds.",
-      "bullets": [
-        "Statutory health insurance coverage is comprehensive and includes inpatient and outpatient care, mental health, prescription drugs, basic and preventive dental care, vision care, and rehabilitation. Germans and their employers also contribute to a separate national long-term-care insurance program.",
-        "Germans earning more than USD 76,000 a year and self-employed individuals can opt out of statutory health insurance and purchase private insurance instead; about 11 percent do. In addition, 10.6 percent of people in statutory health insurance purchase complementary private insurance to help cover services not covered or only partially covered by statutory health insurance."
-      ]
-    },
-    "cost": [
-      "Wage contributions shared by employees and employers; some sickness funds also charge enrollees an income-dependent fee. Cost-sharing is through government-determined copayments that apply to all sickness funds and deductibles that are determined by individual sickness funds. There is no cost-sharing for preventive services or physician visits (primary care or specialists), and physicians cannot bill above the national fee schedule. Copayments apply to hospital care (USD 12.84 per day, up to USD 359 per year), and prescription drugs (USD 6.42–12.84 per outpatient prescription). Children are exempt from cost-sharing, and there’s an annual out-of-pocket maximum: 2 percent of household income for healthy adults or 1 percent for the chronically ill."
-    ],
-    "management": [
-      "Germany has placed various cost controls on prescription drugs. Medications with an unfavorable benefit-risk assessment are not covered, and covered drugs are grouped by therapeutic class and assigned a maximum reimbursement amount, or reference price. For new drugs with added benefit, the Federal Association of Sickness Funds negotiates a reimbursement price on the manufacturer’s price. In addition, sickness funds collectively negotiate uniform fee schedules with provider associations at a regional level and individual sickness funds can negotiate selective integrative care contracts with providers and rebates with pharmaceutical companies."
-    ],
-    "links": [
-      {
-        "text": "Learn more about reference pricing for prescription drugs in Germany",
-        "link": "https://www.commonwealthfund.org/publications/issue-briefs/2019/jan/reference-pricing-germany-implications"
-      },
-      {
-        "text": "Read more about the German health care system",
-        "link": "https://international.commonwealthfund.org/countries/germany/"
       }
     ]
   },

@@ -481,7 +481,7 @@
     <div class="top-text">
       <div class="top-header">
         <h1 class="federal-header">Where Do U.S. Health Reform Proposals Fall on the Medicare-for-All Continuum?</h1>
-        <h1 class="international-header">Where Do International Health Systems Fall on the Coverage Continuum?</h1>
+        <h1 class="international-header">Where Do International Health Systems Fall on the Single-Payer Continuum?</h1>
         <div class="system-radios">
           <div class="radio-container">
             <input type="radio" id="federal-radio" name="plans" value="federal" checked/>
@@ -542,8 +542,8 @@
         <div class="plan-container">
           <div class="big-block-container">
             <div class="big-block all">
-              <h2>Greater Role for Private Financing</h2>
-              <h2>Greater Role for Public Financing</h2>
+              <h2>Regulated System of Health Plans</h2>
+              <h2>Single Public Plan</h2>
             </div>
           </div>
           <div class="small-block-container">
@@ -551,19 +551,19 @@
               <h3>Switzerland</h3>
             </div>
             <div class="small-block two clickable-1">
-              <h3>Australia</h3>
-            </div>
-            <div class="small-block three clickable-2">
               <h3>Netherlands</h3>
             </div>
+            <div class="small-block three clickable-2">
+              <h3>Germany</h3>
+            </div>
             <div class="small-block four clickable-3">
-              <h3>Canada</h3>
+              <h3>Australia</h3>
             </div>
             <div class="small-block five clickable-4">
-              <h3>Norway</h3>
+              <h3>Canada</h3>
             </div>
             <div class="small-block six clickable-5">
-              <h3>Germany</h3>
+              <h3>Norway</h3>
             </div>
             <div class="small-block seven clickable-6">
               <h3>Sweden</h3>
@@ -600,8 +600,13 @@
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.2.5/polyfill.min.js"></script>
+  <script type="text/javascript">
+    if (window.NodeList && !NodeList.prototype.forEach) {
+      NodeList.prototype.forEach = Array.prototype.forEach;
+    }
+  </script>
   <script src="https://d3js.org/d3.v3.min.js"></script>
-  <script src="https://d3js.org/queue.v1.min.js"></script>
+  <script src="https://d3js.org/d3-queue.v3.min.js"></script>
   <!-- <script type="text/javascript" src="./script.js"></script> -->
   <script type="text/javascript" src="./lib/script.js"></script>
 </body>

@@ -81,7 +81,7 @@
     });
   });
 
-  queue()
+  d3.queue()
     .defer(d3.json, 'data/federal-proposals.json')
     .defer(d3.json, 'data/international-systems.json')
     .await(checkSize);
@@ -151,8 +151,7 @@
     var svg = d3.select(".timeline-container").append("svg").attr({
       id: "desktop-timeline",
       width: w,
-      height: h,
-      transform: "translate(" + [0, -1*margin.top] + ")",
+      height: h
     });
 
     var xScale = d3.scale.linear()
@@ -246,7 +245,7 @@
     var activeFullTools = 0;
     var reachedLimit = false;
 
-    let circles = svg.selectAll("circle")
+    var circles = svg.selectAll("circle")
       .data(proposals);
 
     circles.enter()
