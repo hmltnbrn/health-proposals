@@ -100,16 +100,16 @@
       internationalData = internationalSystems;
       firstTime = false;
     }
-    if(screen.width <= 768 || window.innerWidth <= 768) {
-      mobile = true;
-      // d3.select(".mobile-container").show();
-      // d3.select(".desktop-container").hide();
-    }
-    else {
-      mobile = false;
-      // d3.select(".desktop-container").show();
-      // d3.select(".mobile-container").hide();
-    }
+    // if(screen.width <= 768 || window.innerWidth <= 768) {
+    //   mobile = true;
+    //   d3.select(".mobile-container").show();
+    //   d3.select(".desktop-container").hide();
+    // }
+    // else {
+    //   mobile = false;
+    //   d3.select(".desktop-container").show();
+    //   d3.select(".mobile-container").hide();
+    // }
     renderAll();
   }
 
