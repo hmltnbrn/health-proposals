@@ -17,7 +17,14 @@
 
   d3.selection.prototype.toggle = function() {
     var isHidden = this.style('display') == 'none';
-    return this.style('display', isHidden ? 'inherit' : 'none');
+    this.style('display', isHidden ? 'inherit' : 'none');
+    return this;
+  }
+
+  d3.selection.prototype.hideToggle = function() {
+    var isHidden = this.style('display') == 'none';
+    this.style('display', isHidden ? null : 'none');
+    return this;
   }
 
   d3.selection.prototype.check = function() {
@@ -100,16 +107,16 @@
       internationalData = internationalSystems;
       firstTime = false;
     }
-    // if(screen.width <= 768 || window.innerWidth <= 768) {
-    //   mobile = true;
-    //   d3.select(".mobile-container").show();
-    //   d3.select(".desktop-container").hide();
-    // }
-    // else {
-    //   mobile = false;
-    //   d3.select(".desktop-container").show();
-    //   d3.select(".mobile-container").hide();
-    // }
+    if(screen.width <= 768 || window.innerWidth <= 768) {
+      mobile = true;
+      d3.select(".mobile-container").show();
+      d3.select(".desktop-container").hide();
+    }
+    else {
+      mobile = false;
+      d3.select(".desktop-container").show();
+      d3.select(".mobile-container").hide();
+    }
     renderAll();
   }
 
@@ -124,9 +131,13 @@
     }
     else {
       if(system === "federal") {
+        d3.select(".mobile-federal-container").show();
+        d3.select(".mobile-international-container").hide();
         renderMobile(federalData);
       }
       else if(system === "international") {
+        d3.select(".mobile-international-container").show();
+        d3.select(".mobile-federal-container").hide();
         renderMobile(internationalData);
       }
     }
@@ -543,6 +554,71 @@
   }
 
   function renderMobile(proposals) {
+    var proposalsLength = [...new Set(proposals.map(value => value.x))].length;
+
+    d3.selectAll(`.mobile-${system}-container .mobile-small-block`).each(function(d, i) {
+      let coord = parseInt(d3.select(this).attr("class").split(" ")[2].split("-")[2]);
+      if(i <= proposalsLength - 1) {
+        var divs = d3.select(`.mobile-${system}-container .mobile-plan-container`).selectAll(`div.mobile-full-view-${coord}`)
+          .data(proposals.filter(function(d) {
+            return d.x === coord;
+          }));
+        divs.enter()
+          .insert("div", `.${d3.select(this.nextElementSibling).attr("class").split(" ").join(".")}`)
+          .attr("class", `mobile-full-view mobile-full-view-${coord}`);
+        divs
+          .html(function(d) {
+            return setFullTooltopHtml(d);
+          })
+          .style("display", "none");
+        divs.exit().remove();
+        d3.select(this).on("click", function() {
+          let coord = parseInt(d3.select(this).attr("class").split(" ")[2].split("-")[2]);
+          let points = document.querySelectorAll(`.mobile-full-view-${coord}`);
+          points.forEach((p) => {
+            d3.select(p).hideToggle();
+          });
+        });
+      }
+    });
+
+    function setFullTooltopHtml(d) {
+      if(system === "federal") {
+        let transitionHeader = d.transition.time || "";
+        let transitionText = d.transition.text || "";
+        return `
+          <h2>${d.name}</h2>
+          <h3>Sponsor</h3>
+          <p>${d.sponsor}</p>
+          <h3>New Coverage Enhancement or Option</h3>
+          <p>${d.enhancement}</p>
+          <h3>Who Is Eligible?</h3>
+          <p>${d.eligibility}</p>
+          <h3>How Do People Pay for Coverage and Health Care?</h3>
+          <p>${d.cost}</p>
+          <h3>How Are Health Care Costs Managed?</h3>
+          <p>${d.management}</p>
+          <h3>${transitionHeader}</h3>
+          <p>${transitionText}</p>
+          <a href="${d.link}" target="_blank">Read the bill</a>
+        `;
+      }
+      else if(system === "international") {
+        return `
+          <h2>${d.name}</h2>
+          <h3>How Are People Covered?</h3>
+          <p>${d.coverage.text}</p>
+          <ul>
+            ${d.coverage.bullets.map(b => `<li>${b}</li>`).join("")}
+          </ul>
+          <h3>How Do People Pay for Coverage and Health Care?</h3>
+          ${d.cost.map(c => `<p>${c}</p>`).join("")}
+          <h3>How Are Health Care Costs Managed?</h3>
+          ${d.management.map(m => `<p>${m}</p>`).join("")}
+          ${d.links.map(l => `<a href="${l.link}" target="_blank">${l.text}</a>`).join("")}
+        `;
+      }
+    }
   }
 
 })();
