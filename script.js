@@ -93,7 +93,14 @@
     .defer(d3.json, 'data/international-systems.json')
     .await(checkSize);
 
-  window.addEventListener('resize', checkSize);
+  var cachedWidth = window.innerWidth;
+  window.addEventListener('resize', function(){
+    var newWidth = window.innerWidth;
+    if(newWidth !== cachedWidth) {
+      cachedWidth = newWidth;
+      checkSize();
+    }
+  });
   window.addEventListener('orientationchange', checkSize);
 
   var federalData;
@@ -573,7 +580,6 @@
           .style("display", "none");
         divs.exit().remove();
         d3.select(this).on("click", function() {
-          let coord = parseInt(d3.select(this).attr("class").split(" ")[2].split("-")[2]);
           let points = document.querySelectorAll(`.mobile-full-view-${coord}`);
           points.forEach((p) => {
             d3.select(p).hideToggle();
