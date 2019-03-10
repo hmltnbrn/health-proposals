@@ -6,7 +6,8 @@
   "scripts": {
     "test": "npm start",
     "start": "node server",
-    "babel": "./node_modules/.bin/babel ./script.js --out-dir lib"
+    "babel": "./node_modules/.bin/babel ./script.js --out-dir lib",
+    "postcss": "postcss styles.css --dir lib"
   },
   "author": "Brian Hamilton",
   "license": "MIT",
@@ -22,6 +23,8 @@
     "@babel/plugin-transform-arrow-functions": "^7.2.0",
     "@babel/plugin-transform-spread": "^7.2.2",
     "@babel/preset-env": "^7.3.4",
-    "babel-plugin-transform-es2015-template-literals": "^6.22.0"
+    "autoprefixer": "^9.4.10",
+    "babel-plugin-transform-es2015-template-literals": "^6.22.0",
+    "postcss-cli": "^6.1.2"
   }
 }
