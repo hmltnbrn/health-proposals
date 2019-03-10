@@ -563,26 +563,28 @@
   function renderMobile(proposals) {
     var proposalsLength = [...new Set(proposals.map(value => value.x))].length;
 
+    var systemContainer = `.mobile-${system}-container .mobile-plan-container`;
+    if(system === "international") systemContainer += " .mobile-small-block-container";
+
     d3.selectAll(`.mobile-${system}-container .mobile-small-block`).each(function(d, i) {
       let coord = parseInt(d3.select(this).attr("class").split(" ")[2].split("-")[2]);
       if(i <= proposalsLength - 1) {
-        var divs = d3.select(`.mobile-${system}-container .mobile-plan-container`).selectAll(`div.mobile-full-view-${coord}`)
+        var divs = d3.select(systemContainer).selectAll(`div.mobile-full-view-${coord}`)
           .data(proposals.filter(function(d) {
             return d.x === coord;
           }));
         divs.enter()
           .insert("div", `.${d3.select(this.nextElementSibling).attr("class").split(" ").join(".")}`)
-          .attr("class", `mobile-full-view mobile-full-view-${coord}`);
+          .attr("class", `mobile-full-view-container mobile-full-view-${coord}`);
         divs
           .html(function(d) {
             return setFullTooltopHtml(d);
-          })
-          .style("display", "none");
+          });
         divs.exit().remove();
         d3.select(this).on("click", function() {
-          let points = document.querySelectorAll(`.mobile-full-view-${coord}`);
+          let points = document.querySelectorAll(`.mobile-${system}-container .mobile-full-view-${coord}`);
           points.forEach((p) => {
-            d3.select(p).hideToggle();
+            d3.select(p).classed("active", !d3.select(p).classed("active"));
           });
         });
       }
@@ -593,35 +595,39 @@
         let transitionHeader = d.transition.time || "";
         let transitionText = d.transition.text || "";
         return `
-          <h2>${d.name}</h2>
-          <h3>Sponsor</h3>
-          <p>${d.sponsor}</p>
-          <h3>New Coverage Enhancement or Option</h3>
-          <p>${d.enhancement}</p>
-          <h3>Who Is Eligible?</h3>
-          <p>${d.eligibility}</p>
-          <h3>How Do People Pay for Coverage and Health Care?</h3>
-          <p>${d.cost}</p>
-          <h3>How Are Health Care Costs Managed?</h3>
-          <p>${d.management}</p>
-          <h3>${transitionHeader}</h3>
-          <p>${transitionText}</p>
-          <a href="${d.link}" target="_blank">Read the bill</a>
+          <div class="mobile-full-view">
+            <h2>${d.name}</h2>
+            <h3>Sponsor</h3>
+            <p>${d.sponsor}</p>
+            <h3>New Coverage Enhancement or Option</h3>
+            <p>${d.enhancement}</p>
+            <h3>Who Is Eligible?</h3>
+            <p>${d.eligibility}</p>
+            <h3>How Do People Pay for Coverage and Health Care?</h3>
+            <p>${d.cost}</p>
+            <h3>How Are Health Care Costs Managed?</h3>
+            <p>${d.management}</p>
+            <h3>${transitionHeader}</h3>
+            <p>${transitionText}</p>
+            <a href="${d.link}" target="_blank">Read the bill</a>
+          </div>
         `;
       }
       else if(system === "international") {
         return `
-          <h2>${d.name}</h2>
-          <h3>How Are People Covered?</h3>
-          <p>${d.coverage.text}</p>
-          <ul>
-            ${d.coverage.bullets.map(b => `<li>${b}</li>`).join("")}
-          </ul>
-          <h3>How Do People Pay for Coverage and Health Care?</h3>
-          ${d.cost.map(c => `<p>${c}</p>`).join("")}
-          <h3>How Are Health Care Costs Managed?</h3>
-          ${d.management.map(m => `<p>${m}</p>`).join("")}
-          ${d.links.map(l => `<a href="${l.link}" target="_blank">${l.text}</a>`).join("")}
+          <div class="mobile-full-view">
+            <h2>${d.name}</h2>
+            <h3>How Are People Covered?</h3>
+            <p>${d.coverage.text}</p>
+            <ul>
+              ${d.coverage.bullets.map(b => `<li>${b}</li>`).join("")}
+            </ul>
+            <h3>How Do People Pay for Coverage and Health Care?</h3>
+            ${d.cost.map(c => `<p>${c}</p>`).join("")}
+            <h3>How Are Health Care Costs Managed?</h3>
+            ${d.management.map(m => `<p>${m}</p>`).join("")}
+            ${d.links.map(l => `<a href="${l.link}" target="_blank">${l.text}</a>`).join("")}
+          </div>
         `;
       }
     }

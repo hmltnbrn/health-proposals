@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Commonwealth Fund - Healthcare Proposals</title>
   <style type="text/css">
 
@@ -250,8 +251,13 @@
     .mobile-big-block h2 {
       font-family: InterfaceBold;
       margin: 0;
-      font-size: 25px;
+      font-size: 30px;
       color: #ffffff;
+      max-width: 400px;
+    }
+    
+    .mobile-small-block-container {
+      background: linear-gradient(#3e8a9b, #3b8397, #387c92, #33748d, #2f6d89, #2a6382, #275d7f, #23567b);
     }
 
     .mobile-small-block {
@@ -284,8 +290,9 @@
     .mobile-small-block h3 {
       font-family: InterfaceBold;
       margin: 0;
-      font-size: 20px;
+      font-size: 25px;
       color: #ffffff;
+      max-width: 400px;
     }
 
     .timeline-container {
@@ -507,36 +514,72 @@
       margin: 5px 0 0 0;
     }
 
+    div.mobile-full-view-container {
+      opacity: 0;
+      height: 0;
+      transition: opacity 0.5s ease-in-out;
+      overflow: hidden;
+    }
+
+    div.mobile-full-view-container.active {
+      opacity: 1;
+      height: auto;
+    }
+
     div.mobile-full-view {
       font-family: InterfaceRegular;
       display: flex;
       display: -webkit-flex;
       flex-direction: column;
       -webkit-flex-direction: column;
-      margin: 15px;
-      padding: 0 0 10px 0;
-      font-size: 15px;
-      border-bottom: 1.5px dotted #6ac3c6;
-    }
-
-    .mobile-full-view h2 {
+      background: #ffffff;
+      padding: 15px 15px 0 15px;
       font-size: 20px;
     }
 
+    .mobile-full-view h2 {
+      font-size: 24px;
+    }
+
     .mobile-full-view h3 {
-      font-size: 17px;
+      font-size: 21px;
     }
 
     .mobile-full-view p {
-      font-size: 17px;
+      font-size: 21px;
     }
 
     .mobile-full-view ul {
-      font-size: 17px;
+      font-size: 21px;
+    }
+
+    .mobile-full-view a {
+      font-size: 21px;
+    }
+
+    .mobile-full-view a:last-child {
+      border-bottom: 1.5px dotted #6ac3c6;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
     }
 
     .mobile-international-container {
       display: none;
+    }
+
+    @media screen and (max-width: 500px) {
+      h1 {
+        font-size: 32px;
+      }
+
+      .top-text p {
+        font-size: 20px;
+      }
+
+      .system-radios label {
+        font-size: 20px;
+        padding: 15px 20px;
+      }
     }
 
   </style>
@@ -685,31 +728,33 @@
           <div class="mobile-big-block four">
             <h2>Regulated System of Health Plans</h2>
           </div>
-          <div class="mobile-small-block one mobile-x-0">
-            <h3>Switzerland</h3>
+          <div class="mobile-small-block-container">
+            <div class="mobile-small-block all mobile-x-0">
+              <h3>Switzerland</h3>
+            </div>
+            <div class="mobile-small-block all mobile-x-1">
+              <h3>Netherlands</h3>
+            </div>
+            <div class="mobile-small-block all mobile-x-2">
+              <h3>Germany</h3>
+            </div>
+            <div class="mobile-small-block all mobile-x-3">
+              <h3>Australia</h3>
+            </div>
+            <div class="mobile-small-block all mobile-x-4">
+              <h3>Canada</h3>
+            </div>
+            <div class="mobile-small-block all mobile-x-5">
+              <h3>Norway</h3>
+            </div>
+            <div class="mobile-small-block all mobile-x-6">
+              <h3>Sweden</h3>
+            </div>
+            <div class="mobile-small-block all mobile-x-7">
+              <h3>United Kingdom</h3>
+            </div>
+            <div class="mobile-small-block hidden mobile-x-8"></div>
           </div>
-          <div class="mobile-small-block one mobile-x-1">
-            <h3>Netherlands</h3>
-          </div>
-          <div class="mobile-small-block one mobile-x-2">
-            <h3>Germany</h3>
-          </div>
-          <div class="mobile-small-block one mobile-x-3">
-            <h3>Australia</h3>
-          </div>
-          <div class="mobile-small-block one mobile-x-4">
-            <h3>Canada</h3>
-          </div>
-          <div class="mobile-small-block one mobile-x-5">
-            <h3>Norway</h3>
-          </div>
-          <div class="mobile-small-block one mobile-x-6">
-            <h3>Sweden</h3>
-          </div>
-          <div class="mobile-small-block one mobile-x-7">
-            <h3>United Kingdom</h3>
-          </div>
-          <div class="mobile-small-block hidden mobile-x-8"></div>
           <div class="mobile-big-block five">
             <h2>Single Public Plan</h2>
           </div>
