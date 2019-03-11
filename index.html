@@ -27,11 +27,11 @@
       </div>
       <div class="descriptive-text federal-text">
         <p>The health care debate in the 2020 presidential campaign so far has largely focused on Democratic candidates' support for "Medicare for all," or a national health insurance program.</p>
-        <p>Click or tap the dots along the continuum to view the lawmakers' bills and where they fall on the Medicare-for-all continuum – ranging from those relying on a mix of private and publicly funded health insurance to those featuring only public coverage. You can also compare the benefits each coverage plan would provide, how people would pay for coverage and care, and how the bills would contain overall health care costs.</p>
+        <p><span class="what-to-do">Click or tap the dots along the continuum</span> to view the lawmakers' bills and where they fall on the Medicare-for-all continuum – ranging from those relying on a mix of private and publicly funded health insurance to those featuring only public coverage. You can also compare the benefits each coverage plan would provide, how people would pay for coverage and care, and how the bills would contain overall health care costs.</p>
       </div>
       <div class="descriptive-text international-text">
         <p>The "Medicare for all" debate has sparked interest in how other wealthy nations provide affordable, universal health insurance coverage.</p>
-        <p>Click or tap the dots along the continuum to learn more about the eight health systems featured below. While each includes a mix of public and private insurance, we show where they differ in what public financing covers and doesn't cover and how much people pay out of pocket for their health care, as well as how health care costs are contained.</p>
+        <p><span class="what-to-do">Click or tap the dots along the continuum</span> to learn more about the eight health systems featured below. While each includes a mix of public and private insurance, we show where they differ in what public financing covers and doesn't cover and how much people pay out of pocket for their health care, as well as how health care costs are contained.</p>
       </div>
     </div>
     <div class="desktop-container">
@@ -187,9 +187,20 @@
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.2.5/polyfill.min.js"></script>
   <script type="text/javascript">
-    if (window.NodeList && !NodeList.prototype.forEach) {
-      NodeList.prototype.forEach = Array.prototype.forEach;
-    }
+    (function () {
+      if (window.NodeList && !NodeList.prototype.forEach) {
+        NodeList.prototype.forEach = Array.prototype.forEach;
+      }
+      if ( typeof window.CustomEvent === "function" ) return false;
+      function CustomEvent ( event, params ) {
+        params = params || { bubbles: false, cancelable: false, detail: null };
+        var evt = document.createEvent( 'CustomEvent' );
+        evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
+        return evt;
+      }
+      CustomEvent.prototype = window.Event.prototype;
+      window.CustomEvent = CustomEvent;
+    })();
   </script>
   <script src="https://d3js.org/d3.v3.min.js"></script>
   <script src="https://d3js.org/d3-queue.v3.min.js"></script>
