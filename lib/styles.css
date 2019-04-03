@@ -1,16 +1,16 @@
 @font-face {
   font-family: InterfaceRegular;
-  src: url('/fonts/interface/InterFace_Rg.ttf');
+  src: url('https://s3.amazonaws.com/interactives.commonwealthfund.org/2019/mar/coverage-interactive/fonts/interface/InterFace_Rg.ttf');
 }
 
 @font-face {
   font-family: InterfaceBold;
-  src: url('/fonts/interface/InterFace_Bd.ttf');
+  src: url('https://s3.amazonaws.com/interactives.commonwealthfund.org/2019/mar/coverage-interactive/fonts/interface/InterFace_Bd.ttf');
 }
 
 @font-face {
   font-family: BerlingskeSerifTextExtrabold;
-  src: url('/fonts/berlingske/BerlingskeSerifText-Extrabold.otf');
+  src: url('https://s3.amazonaws.com/interactives.commonwealthfund.org/2019/mar/coverage-interactive/fonts/berlingske/BerlingskeSerifText-Extrabold.otf');
 }
 
 * {
@@ -335,10 +335,10 @@ h1.international-header {
 }
 
 .timeline-container {
-  min-height: 170px;
+  min-height: 200px;
   position: relative;
   z-index: 100;
-  height: 170px;
+  height: 200px;
 }
 
 #desktop-timeline {
@@ -359,7 +359,7 @@ div.viz-tooltip {
   background: #eef8f9;
   border: 1px solid #ffffff;
   border-radius: 0px;
-  min-height: 140px;
+  min-height: 175px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

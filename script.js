@@ -237,7 +237,7 @@
 
     var circleAttrs = {
       cx: function(d) {
-        if(previousCxValue && previousCxValue === d.x) cxOffset += (100/proposalsLength) / proposalsCounted[d.x];
+        if(previousCxValue === d.x) cxOffset += (100/proposalsLength) / proposalsCounted[d.x];
         else cxOffset = 2;
         let cx = xScale((d.x * 100 / proposalsLength) + cxOffset);
         previousCxValue = d.x;
@@ -248,7 +248,7 @@
       stroke: "white",
       "stroke-width": "1px",
       fill: function(d) {
-        if(previousColorValue && previousColorValue === d.x) colorOffset += (100/proposalsLength) / proposalsCounted[d.x];
+        if(previousColorValue === d.x) colorOffset += (100/proposalsLength) / proposalsCounted[d.x];
         else colorOffset = 2;
         let color = colorLine((d.x * 100 / proposalsLength) + colorOffset);
         previousColorValue = d.x;
@@ -520,14 +520,14 @@
 
     function updateTooltips(d) {
       d3.selectAll(`.tooltip-x-${d.x}`).each(function(d, i) {
-        d3.select(this).style("top", (20 + (140 * (i + 1) - 140)) + "px");
+        d3.select(this).style("top", (20 + (170 * (i + 1) - 170)) + "px");
       });
     }
 
     function maintainTimelineHeight(d) {
       let h = chartDiv.clientHeight;
       let maxValue = Math.max(...sectionActive);
-      let newHeight = 170 * (sectionActive[d.x]);
+      let newHeight = 200 * (sectionActive[d.x]);
       if(sectionActive[d.x] > 1 && newHeight > h) {
         d3.select("#timeline-container")
           .style("height", newHeight + "px");

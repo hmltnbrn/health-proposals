@@ -2,6 +2,21 @@
   {
     "id": 0,
     "x": 0,
+    "name": "Protecting Pre-existing Conditions & Making Health Care More Affordable Act of 2019 (H.R. 1884)",
+    "sponsor": "Rep. Pallone (D–NJ), 2019",
+    "enhancement": "Extends and enhances premium subsidies for marketplace plans and makes it easier for people with unaffordable employer plans to become eligible for marketplace subsidies. Reinstates limits on health plans that don’t comply with the Affordable Care Act’s consumer protections. Reverses recent executive action that loosened the law’s essential health benefit requirement. Would reinstate standardized plan options for the marketplaces to simplify consumer choice. Provides new funds to increase consumer awareness of insurance options and for assistance in enrollment. Establishes state and federal reinsurance programs.",
+    "eligibility": "All not eligible for employer coverage, Medicaid, or Medicare.",
+    "cost": "Premiums and any deductibles and copayments or coinsurance that are part of their plan.",
+    "management": "No additions to existing law.",
+    "transition": {
+      "time": "",
+      "text": ""
+    },
+    "link": "https://energycommerce.house.gov/sites/democrats.energycommerce.house.gov/files/documents/Health%20Care%20Bill%20Text.pdf"
+  },
+  {
+    "id": 1,
+    "x": 0,
     "name": "Consumer Health Insurance Protection Act of 2018 (S. 2582)",
     "sponsor": "Sen. Elizabeth Warren (D–Mass.), 2018",
     "enhancement": "Extends and enhances premium subsidies for marketplace plans and makes it easier for people with unaffordable employer plans to become eligible for marketplace subsidies. Reduces cost-sharing in marketplace plans for those with incomes under 400 percent of the federal poverty level (up to $48,560 for an individual), including a monthly cap on prescription drug spending. Insurers that offer Medicare Advantage or Medicaid in a region must also offer marketplace plans.",
@@ -15,12 +30,12 @@
     "link": "https://www.congress.gov/bill/115th-congress/senate-bill/2582"
   },
   {
-    "id": 1,
+    "id": 2,
     "x": 1,
     "name": "Medicare-X Choice Act of 2017 (S. 1970, H.R. 4094)",
     "sponsor": "Sen. Michael Bennet (D–Colo.), 2017; Rep. Brian Higgins (D–N.Y.), 2017",
     "enhancement": "Creates a new health insurance marketplace public plan option, the Medicare Exchange plan, that meets marketplace standards and is separate from the Medicare program.",
-    "eligibility": "Premiums, as well as any deductibles and copays or coinsurance that are part of their plan.",
+    "eligibility": "People with individual or small-business coverage, starting in underserved areas.",
     "cost": "Premiums, as well as any deductibles and copayments or coinsurance that are part of their plan.",
     "management": "The U.S. Department of Health and Human Services Secretary sets premiums for the Medicare Exchange plan and negotiates prescription drug prices; the Veterans Affairs prescription drug price is the fallback if negotiations fail. Physicians, hospitals, and other providers participating in Medicare or Medicaid also must participate in the Medicare Exchange plan. Providers in the Medicare Exchange plan are reimbursed at Medicare rates; higher in rural areas as needed. The Secretary may use innovative payment policies to encourage high-value care and delivery system reform, integrate social services, and promote telehealth.",
     "transition": {
@@ -30,7 +45,7 @@
     "link": "https://www.congress.gov/bill/115th-congress/senate-bill/1970"
   },
   {
-    "id": 2,
+    "id": 3,
     "x": 2,
     "name": "Choose Medicare Act (S. 2708, H.R. 6117)",
     "sponsor": "Sen. Jeff Merkley (D–Ore.), 2018; Rep. Cedric Richmond (D–La.), 2018",
@@ -45,22 +60,22 @@
     "link": "https://www.congress.gov/bill/115th-congress/senate-bill/2708"
   },
   {
-    "id": 3,
+    "id": 4,
     "x": 3,
-    "name": "Medicare Buy-In and Health Care Stabilization Act of 2017 (H.R. 3748)",
-    "sponsor": "Rep. Brian Higgins (D–N.Y.), 2017",
-    "enhancement": "People ages 50 to 64 may buy a plan with Medicare benefits for an annual premium. Those eligible for marketplace premium and cost-sharing subsides could apply them to the plan. Extends and enhances cost-sharing reduction subsidies. Employers may pay premiums for eligible employees.",
-    "eligibility": "People ages 50 to 64 not eligible for Medicare.",
+    "name": "Medicare Buy-In and Health Care Stabilization Act of 2019 (H.R. 1346)",
+    "sponsor": "Rep. Brian Higgins (D–N.Y.), 2019",
+    "enhancement": "People ages 50 to 64 may buy a plan with Medicare Part A, B, and D benefits, or Medicare Advantage plans, for an annual premium. Buy-in plans would be offered through the marketplaces. Those eligible for marketplace premium and cost-sharing subsides would receive similar subsidies under the buy-in. People may also purchase supplemental coverage. Extends and enhances cost-sharing reduction subsidies.",
+    "eligibility": "People ages 50 to 64 not eligible for Medicare or Medicaid.",
     "cost": "Premiums, as well as any deductibles and copayments or coinsurance that are part of the plan.",
-    "management": "The U.S. Department of Health and Human Services would set the premium. Would establish the Medicare Buy-in Trust Fund, separate from the Medicare Trust Fund. Providers are paid at Medicare rates. HHS would negotiate Medicare Part D prescription drug prices. Reinstates the Affordable Care Act’s cost-sharing reduction payments to insurers and reinsurance program. Extends risk corridor program to offset insurer losses through 2020.",
+    "management": "The U.S. Department of Health and Human Services would set  premiums and may vary them by age. Would establish the Medicare Buy-in Trust Fund, separate from the Medicare Trust Fund. Providers are paid at Medicare rates. HHS would negotiate Medicare Part D prescription drug prices. Establishes a reinsurance program and extends the ACA risk corridor program to offset insurer losses through 2020.",
     "transition": {
       "time": "",
       "text": ""
     },
-    "link": "https://www.congress.gov/bill/115th-congress/house-bill/3748"
+    "link": "https://www.congress.gov/bill/116th-congress/house-bill/1346"
   },
   {
-    "id": 4,
+    "id": 5,
     "x": 3,
     "name": "Medicare at 50 Act (S. 470)",
     "sponsor": "Sen. Debbie Stabenow (D–Mich.), 2019",
@@ -75,7 +90,7 @@
     "link": "https://www.congress.gov/bill/116th-congress/senate-bill/470"
   },
   {
-    "id": 5,
+    "id": 6,
     "x": 4,
     "name": "State Public Option Act (S. 489, H.R. 1277)",
     "sponsor": "Sen. Brian Schatz (D–Hawaii), 2019; Rep. Ben Ray Luján (D–N.M.), 2019",
@@ -90,11 +105,11 @@
     "link": "https://www.congress.gov/bill/116th-congress/senate-bill/489"
   },
   {
-    "id": 6,
+    "id": 7,
     "x": 5,
     "name": "Medicare for America Act of 2018 (H.R. 7339)",
     "sponsor": "Rep. Rosa DeLauro (D–Conn.), 2018",
-    "enhancement": "Creates a national health insurance program that replaces Medicare and Medicaid and most private insurance. All residents are eligible. Offers comprehensive benefits, including dental coverage. People may buy supplemental private insurance to pay for any uncovered services. People will pay subsidized community-rated premiums set by the U.S. Department of Health and Human Services Secretary, with no one paying more than 9.7 percent of income. Cost-sharing will vary by income including deductibles of no more than $350 for an individual, up to an out-of-pocket limit. Maintains Medicare Advantage program, Federal Employees Health Benefits Program, TRICARE, Veterans Administration benefits, and the Indian Health Service.",
+    "enhancement": "Creates a national health insurance program that replaces Medicare and Medicaid and most private insurance. Large employers (100 or more employees) may continue to offer coverage as long as it meets the standards of the public plan or they can provide a contribution of 8 percent of payroll to their employees’ public plan premium. Employees can also opt in to the national program. Offers comprehensive benefits, including dental and vision coverage and long-term care services. People may buy supplemental private insurance to pay for any uncovered services. People will pay subsidized community-rated premiums set by the U.S. Department of Health and Human Services Secretary, with no one paying more than 9.7 percent of income. Cost-sharing will vary by income including deductibles of no more than $350 for an individual, up to an out-of-pocket limit. Maintains Medicare Advantage program, Federal Employees Health Benefits Program, TRICARE, Veterans Administration benefits, and the Indian Health Service.",
     "eligibility": "All U.S. residents. The Secretary is required to establish an autoenrollment mechanism for those eligible.",
     "cost": "Premiums, as well as any deductibles and copayments or coinsurance.",
     "management": "A unified Medicare Trust Fund absorbs funds associated with Medicare and Medicaid. The U.S. Department of Health and Human Services Secretary negotiates prescription drug prices; provider rates set at Medicare rates or somewhat higher for underserved areas as needed.",
@@ -105,7 +120,7 @@
     "link": "https://www.congress.gov/bill/115th-congress/house-bill/7339"
   },
   {
-    "id": 7,
+    "id": 8,
     "x": 5,
     "name": "Medicare for All Act of 2017 (S. 1804)",
     "sponsor": "Sen. Bernie Sanders (I–Vt.), 2017",
@@ -120,7 +135,7 @@
     "link": "https://www.congress.gov/bill/115th-congress/senate-bill/1804"
   },
   {
-    "id": 8,
+    "id": 9,
     "x": 5,
     "name": "Medicare for All Act of 2019 (H.R. 1384)",
     "sponsor": "Rep. Pramila Jayapal (D–Wash.), 2019",
@@ -132,10 +147,10 @@
       "time": "Two-Year Transition",
       "text": "People age 55 or older and age 18 or younger are eligible for the new Medicare for All program and everyone else could choose to enroll in a Medicare Transition buy-in plan available through the marketplaces. People currently eligible for premium and cost-sharing subsidies could apply them to the new plan."
     },
-    "link": "https://www.congress.gov/bill/116th-congress/house-bill/1384"
+    "link": "https://jayapal.house.gov/wp-content/uploads/2019/02/Medicare-for-All-Act-of-2019-Bill-Text.pdf"
   },
   {
-    "id": 9,
+    "id": 10,
     "x": 5,
     "name": "Expanded and Improved Medicare for All Act (H.R. 676)",
     "sponsor": "Rep. Keith Ellison (D–Minn.), 2017",
