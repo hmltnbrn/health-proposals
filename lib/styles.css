@@ -148,7 +148,6 @@ h1.international-header {
   height: 135px;
   width: 100%;
   background: -webkit-gradient(linear, left top, right top, from(#2d8896), to(#033865));
-  background: -webkit-linear-gradient(left, #2d8896, #033865);
   background: -o-linear-gradient(left, #2d8896, #033865);
   background: linear-gradient(to right, #2d8896, #033865);
 }
@@ -208,7 +207,6 @@ h1.international-header {
   height: 100px;
   width: 100%;
   background: -webkit-gradient(linear, left top, right top, from(#6ac3c6), to(#377098));
-  background: -webkit-linear-gradient(left, #6ac3c6, #377098);
   background: -o-linear-gradient(left, #6ac3c6, #377098);
   background: linear-gradient(to right, #6ac3c6, #377098);
 }
@@ -255,21 +253,18 @@ h1.international-header {
 
 .mobile-big-block.one {
   background: -webkit-gradient(linear, left top, left bottom, from(#4abdbc), to(#349aa9));
-  background: -webkit-linear-gradient(#4abdbc, #349aa9);
   background: -o-linear-gradient(#4abdbc, #349aa9);
   background: linear-gradient(#4abdbc, #349aa9);
 }
 
 .mobile-big-block.two {
   background: -webkit-gradient(linear, left top, left bottom, from(#349aa9), to(#1d7495));
-  background: -webkit-linear-gradient(#349aa9, #1d7495);
   background: -o-linear-gradient(#349aa9, #1d7495);
   background: linear-gradient(#349aa9, #1d7495);
 }
 
 .mobile-big-block.three {
   background: -webkit-gradient(linear, left top, left bottom, from(#1d7495), to(#044c7f));
-  background: -webkit-linear-gradient(#1d7495, #044c7f);
   background: -o-linear-gradient(#1d7495, #044c7f);
   background: linear-gradient(#1d7495, #044c7f);
 }
@@ -292,7 +287,6 @@ h1.international-header {
 
 .mobile-small-block-container {
   background: -webkit-gradient(linear, left top, left bottom, from(#3e8a9b), color-stop(#3b8397), color-stop(#387c92), color-stop(#33748d), color-stop(#2f6d89), color-stop(#2a6382), color-stop(#275d7f), to(#23567b));
-  background: -webkit-linear-gradient(#3e8a9b, #3b8397, #387c92, #33748d, #2f6d89, #2a6382, #275d7f, #23567b);
   background: -o-linear-gradient(#3e8a9b, #3b8397, #387c92, #33748d, #2f6d89, #2a6382, #275d7f, #23567b);
   background: linear-gradient(#3e8a9b, #3b8397, #387c92, #33748d, #2f6d89, #2a6382, #275d7f, #23567b);
 }

@@ -612,7 +612,7 @@
             <p>${d.management}</p>
             <h3>${transitionHeader}</h3>
             <p>${transitionText}</p>
-            <a href="${d.link}" target="_blank">Read the bill</a>
+            ${d.links.map(l => `<a href="${l.url}" target="_blank">Read the ${l.chamber} bill</a>`).join("")}
           </div>
         `;
       }
